@@ -7,8 +7,6 @@ require 'functions/functions-ajax.php';
 
 require 'functions/functions-classes.php';
 
-require 'classes/Article.php';
-
 
 /*
  * Autoload pour les classes
