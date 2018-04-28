@@ -115,21 +115,14 @@ add_filter( 'wp_title', 'mwc_title_for_home' );
 
 
 function my_scripts(){
-    wp_enqueue_script( 'jquery-ui-datepicker' );
     
-    wp_register_script( 'bootsrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js', '', true);
+//    wp_enqueue_script( 'jquery-ui-datepicker' );
+    
+    wp_register_script( 'bootsrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js', array('jquery'), '', true);
     wp_enqueue_script( 'bootsrap' );
-    
-    // datepicker-fr
-    wp_register_script( 'datePickerFr', get_stylesheet_directory_uri() .'/js/datepicker-fr.js', array('jquery', 'jquery-ui-datepicker'), '', true );
-    wp_enqueue_script( 'datePickerFr' );
     
     
     /* MES PLUGINS */
-
-    // jquery.hideArrow
-    wp_register_script( 'hideArrow', get_stylesheet_directory_uri() . '/js/jquery.hideArrow.js', array('jquery'), '', true);
-    wp_enqueue_script( 'hideArrow' );
     
     // custom
     wp_register_script( 'custom', get_stylesheet_directory_uri() .'/js/custom.js', array('jquery'), '', true);
@@ -137,7 +130,7 @@ function my_scripts(){
     
     
     // main
-    wp_register_script( 'main', get_stylesheet_directory_uri() . '/js/main.js', array('jquery', 'jquery-ui-datepicker'), '', true);
+    wp_register_script( 'main', get_stylesheet_directory_uri() . '/js/main.js', array('jquery'), '', true);
     
     // pass url to main        
     wp_localize_script('main', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
@@ -175,17 +168,11 @@ function custom_styles() {
     wp_register_style( 'custom', get_stylesheet_directory_uri() .'/css/custom.css', false, false, 'all' );
     wp_enqueue_style( 'custom' );
     
-    wp_register_style( 'partners', get_stylesheet_directory_uri() .'/css/partners.css', false, false, 'all' );
-    wp_enqueue_style( 'partners' );
+    wp_register_style( 'buttons', get_stylesheet_directory_uri() .'/css/buttons.css', false, false, 'all' );
+    wp_enqueue_style( 'buttons' );
     
     wp_register_style( 'main', get_stylesheet_directory_uri() .'/css/main.css', false, false, 'all' );
     wp_enqueue_style( 'main' );
-    
-    wp_register_style( 'library', get_stylesheet_directory_uri() .'/css/library.css', false, false, 'all' );
-    wp_enqueue_style( 'library' );
-    
-    wp_register_style( 'print', get_template_directory_uri() .'/css/print.css', false, false, 'print' );
-    wp_enqueue_style( 'print' );
 
 }
 add_action( 'wp_enqueue_scripts', 'custom_styles' );
@@ -204,6 +191,23 @@ function mwc_menus() {
 add_action( 'init', 'mwc_menus' );
 
 
+/* POLYLANG */
+
+function mwc__($string) {
+    if (function_exists('pll_')) {
+        return pll__($string);
+    } else {
+        return __($string, "smoothblue");
+    }
+}
+
+function mwc_e($string) {
+    if (function_exists('pll_e')) {
+        pll_e($string);
+    } else {
+        _e($string, "smoothblue");
+    }
+}
 
 
 
