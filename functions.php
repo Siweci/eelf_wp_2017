@@ -31,6 +31,27 @@ function mwc_namespace_autoload( $class_name ) {
 }
 
 
+function mwc_dump($datas) {
+    
+    $datas_type = gettype($datas);
+    echo "<pre>";
+        echo $datas_type . "<br/>";
+        
+        if ($datas_type == 'boolean') {
+            print ($datas) ? "true" : "false";
+        } else {
+            print_r( $datas );
+        }
+        
+    echo "</pre>";
+}
+
+
+if ( is_admin() ) {
+    $my_settings_page = new mwc_front_Settings_Page();
+}
+
+
 
 /**********************************************************************/
 /*                          SETUP THEME                                */
