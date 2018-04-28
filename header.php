@@ -39,28 +39,26 @@
 
 <body <?php body_class();?>>
     
-    <nav class="navbar navbar-default navbar-fixed-top">
-        
+    <nav class="navbar navbar-default">
+
         <div class="container-fluid">
-            
-            
+
             <div class="navbar-header">
-                
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <button type="button" class="navbar-toggle collapsed"
+                        data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-                
-            <a class="navbar-brand bleu" href="<?php echo home_url( '/' ); ?>">
-                Relation-aide.com (Ressources)
-            </a>
-                
-            </div><!-- .navbar-header -->
-        
-        
-            <div class="collapse navbar-collapse" id="main-navbar">
+
+                <a class="navbar-brand" href="index.php">
+                    <?php mwc_custom_logo(); ?>
+                </a>
+            </div>
+
+            <div id="navbar" class="navbar-collapse collapse">
 
                 <?php
                 /* Primary navigation */
@@ -73,8 +71,8 @@
                 ) );
                 ?>
 
-            </div>
-            
-        </div>
-        
+            </div><!-- .nav-collapse -->
+
+        </div><!-- .container-fluid -->
+
     </nav>
