@@ -3,10 +3,6 @@
 require_once( ABSPATH . 'wp-admin/includes/file.php' );
 $home_path = get_home_path();
 
-require 'functions/functions-ajax.php';
-
-require 'functions/functions-classes.php';
-
 
 /*
  * Autoload pour les classes
@@ -77,12 +73,16 @@ function custom_theme_features()  {
 
 	// Add theme support for document Title tag
 	add_theme_support( 'title-tag' );
+        
+        // Add theme support for custom logo
+        add_theme_support( 'custom-logo' );
 
 	// Add theme support for Translation
 	load_theme_textdomain( 'smoothblue', get_template_directory() . '/lang' );
         
-        // Add new roles
-        mwc_create_role_revisor();
+        
+    // Add new roles
+    // mwc_create_role_revisor();
 }
 add_action( 'after_setup_theme', 'custom_theme_features' );
 
@@ -158,17 +158,17 @@ add_action('wp_enqueue_scripts', 'my_scripts');
 // Register Style
 function custom_styles() {
 
-	wp_register_style( 'bootstrap-min', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css', false, false, 'all' );
-	wp_enqueue_style( 'bootstrap-min' );
+    wp_register_style( 'bootstrap-min', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css', false, false, 'all' );
+    wp_enqueue_style( 'bootstrap-min' );
 
-	wp_register_style( 'bootstrap-optional', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css', false, false, 'all' );
-	wp_enqueue_style( 'bootstrap-optional' );
+    wp_register_style( 'bootstrap-optional', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css', false, false, 'all' );
+    wp_enqueue_style( 'bootstrap-optional' );
 
-	wp_register_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', false, false, 'all' );
-	wp_enqueue_style( 'font-awesome' );
+    wp_register_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', false, false, 'all' );
+    wp_enqueue_style( 'font-awesome' );
         
     wp_register_style( 'jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css', false, false, 'all' );
-	wp_enqueue_style( 'jquery-ui' );
+    wp_enqueue_style( 'jquery-ui' );
         
         
         
@@ -202,3 +202,10 @@ function mwc_menus() {
 
 }
 add_action( 'init', 'mwc_menus' );
+
+
+
+
+
+require 'functions/functions-ajax.php';
+require 'functions/functions-custom.php';
