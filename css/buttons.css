@@ -1,0 +1,79 @@
+
+
+.btn-outline,
+.btn-outline:focus {
+    background: 0;
+}
+
+.btn-outline:hover {
+    color: #fff !important;
+}
+
+.btn-outline:active {
+    color: #fff;
+}
+
+
+/* PRIMARY */
+
+.btn-outline.btn-primary {
+    color: #2e6da4;
+}
+
+
+/* DANGER */
+
+.btn-outline.btn-danger {
+    color: #b92c28;
+}
+
+.btn-outline.btn-danger:hover {
+    background: 0;
+    color: #b92c28;
+    font-weight: bold;
+}
+
+
+/* SUCCESS */
+
+.btn-outline.btn-success {
+    color: #4cae4c;
+}
+
+
+
+/* INFO */
+
+.btn-outline.btn-info {
+    color: #28a4c9;
+}
+
+.btn-outline.btn-info:hover {
+    background: #2aabd0;
+}
+
+
+.btn .glyphicon-menu-right {
+    /*
+    Voir si on peut généraliser
+    Originellement utilisé sur accessoire_add_categorie.php
+    */
+    margin-left: 0.6em;
+    font-size: smaller;
+}
+
+.btn .glyphicon-menu-left {
+    margin-right: 0.6em;
+    font-size: smaller;
+}
+
+
+
+
+
+
+/* Groupes de boutons */
+.btn-group .btn:focus {
+	outline: 0;
+}
+

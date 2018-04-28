@@ -1,0 +1,88 @@
+
+.form-control.only-bottom {
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+
+/* THUMBNAIL
+-----------------------------------------------------------------*/
+
+.thumbnail.no-padding {
+    padding: 0;
+}
+
+.thumbnail.no-border {
+    border: 0;
+}
+
+
+
+/* THUMBNAIL
+-----------------------------------------------------------------*/
+
+/* TRANSPARENT BACKGROUND */
+
+.panel-transparent {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.panel-transparent .panel-footer {
+    background-color: transparent;
+    border: 0;
+}
+
+
+/* WHITE BACKGROUND */
+
+.panel-white {
+    box-shadow: none;
+}
+
+.panel-white .panel-footer {
+    background-color: #fff;
+    border: 0;
+}
+
+
+/* NO BACKGROUND */
+
+.panel-no-bg .panel-heading,
+.panel-no-bg .panel-footer {
+    background: transparent;
+}
+
+
+/* NO-BORDER */
+
+.panel-no-border {
+    background-color: transparent;
+}
+
+.panel-no-border-in .panel-heading {
+    border-bottom: 0;
+}
+
+.panel-no-border-in .panel-footer {
+    border-top: 0;
+}
+
+
+/* NO RADIUS */
+
+.panel-no-radius {
+    border-radius: 0;
+}
+
+
+
+/* MEDIA-OBJECT
+-----------------------------------------------------------------*/
+
+.media-body.media-middle .media-heading {
+    margin-bottom: 0;
+}
