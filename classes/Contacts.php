@@ -13,6 +13,14 @@ class mwc_front_Contacts {
         
         return get_option( 'church_contact_infos' );
     }
+    
+    
+    public static function get_info( $name = '' ) {
+        
+        $contact_infos = self::get_option();
+        
+        return ( empty($name) ) ? $contact_infos : $contact_infos[$name];
+    }
 
 
     /**
@@ -65,10 +73,40 @@ class mwc_front_Contacts {
     }
     
     
-    public static function get_full_name() {
+    public static function get_times( $meeting = 'dimanche', $time = ''  ) {
         
         $contact_infos = self::get_option();
         
-        return $contact_infos['full_name'];
+        $horaire = $contact_infos[$meeting];
+        
+        $horaire = str_replace(' ', '', $horaire);
+        
+        $horaires = explode( '-', $horaire );
+        
+        if ( count($horaires) == 2 ) {
+
+            $end = $horaires[1];
+
+        } else {
+            
+            $end = '';
+        }
+        
+        if ( $time == 'start' ) {
+            
+            return $horaires[0];
+            
+        } else if ($time == 'end') {
+            
+            return $end;
+            
+        } else {
+            
+            return array(
+                'start' => $horaires[0],
+                'end' => $end
+            );
+            
+        }
     }
 }
