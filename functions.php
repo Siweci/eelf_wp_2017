@@ -210,6 +210,17 @@ function mwc_e($string) {
 }
 
 
+function mwc_remove_footer_admin($param) {
+    
+    echo '<span class="mwc-promo">'
+        . 'Une réalisation de '
+        . '<a href="http://web-conseil.ch" target="_blank">'
+        . 'Montout, Web Conseil'
+        . '</a>';
+}
+add_filter('admin_footer_text', 'mwc_remove_footer_admin');
+
+
 
 require 'functions/functions-ajax.php';
 require 'functions/functions-custom.php';
