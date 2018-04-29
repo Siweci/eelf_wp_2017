@@ -6,7 +6,7 @@
  * @author jmarcm
  */
 
-class mwc_front_Settings_Page {
+class mwc_front_Church_settings_page {
     
     private $options;
     
@@ -14,8 +14,22 @@ class mwc_front_Settings_Page {
      * Start up
      */
     public function __construct() {
+        
         add_action( 'admin_menu', array( $this, 'add_option_page' ) );
         add_action( 'admin_init', array( $this, 'page_init' ) );
+        add_action( 'admin_enqueue_scripts', array( $this, 'add_custom_admin_css') );
+    }
+    
+    
+    function add_custom_admin_css( $hook ) {
+        
+        if ( $hook != 'settings_page_church-admin' ) {
+            return;
+        }
+        
+        wp_enqueue_style(
+                'admin-styles',
+                get_template_directory_uri().'/css/church-admin.css');
     }
     
     /**
@@ -23,6 +37,7 @@ class mwc_front_Settings_Page {
      *  add sub menu page to the Settings menu
      */
     public function add_option_page() {
+        
         add_options_page(
             'Church Admin', // page title
             'Infos de l\'Eglise', // menu title
@@ -36,6 +51,7 @@ class mwc_front_Settings_Page {
      * Optons page callback
      */
     public function create_admin_page() {
+        
         // Set class property
         $this->options = get_option( 'church_contact_infos' );
         ?>
@@ -54,6 +70,7 @@ class mwc_front_Settings_Page {
         <?php
     }
     
+    
     /**
      * Register and add settings
      */
@@ -65,6 +82,11 @@ class mwc_front_Settings_Page {
             array( $this, 'sanitize' ) // Sanitize
         );
         
+        
+        
+        /*
+         * Les infos générales de l'Eglise
+         *************************************************************/
         
         add_settings_section(
             'general_section_id', // ID
@@ -85,7 +107,7 @@ class mwc_front_Settings_Page {
         
         /*
          * Les infos de contact de l'Eglise
-         */
+         *************************************************************/
         
         add_settings_section(
             'contact_section_id', // ID
@@ -124,6 +146,35 @@ class mwc_front_Settings_Page {
             array( $this, 'telephone_callback' ), 
             'church-admin', 
             'contact_section_id'
+        );
+        
+        add_settings_field(
+            'email_contact', 
+            'Email', 
+            array( $this, 'email_contact_callback' ), 
+            'church-admin', 
+            'contact_section_id'
+        );
+        
+        
+        /*
+         * Les horaires de l'Eglise
+         *************************************************************/
+        
+        add_settings_section(
+            'times_section_id', // ID
+            'Les horaires', // Title
+            array(), // Callback
+            'church-admin' // Page slug
+        );
+        
+        
+        add_settings_field(
+            'dimanche', 
+            'Dimanche', 
+            array( $this, 'dimanche_callback' ), 
+            'church-admin', 
+            'times_section_id'
         );
     }
     
@@ -187,7 +238,8 @@ class mwc_front_Settings_Page {
         
         print('<p class="description"'
                 . 'id="rue-description">Le nom de la rue <strong>et</strong>'
-                . ' le numéro séparés par un espace</p>');
+                . ' le numéro séparés par un espace'
+                . '</p>');
     }
     
     public function cp_callback() {
@@ -197,8 +249,6 @@ class mwc_front_Settings_Page {
                 . 'aria-describedby="cp-description" value="%s" />',
             isset( $this->options['cp'] ) ? esc_attr( $this->options['cp']) : ''
         );
-        
-//        print('<p class="description" id="cp-description">Le nom de la rue <strong>et</strong> le numéro</p>');
     }
     
     public function ville_callback() {
@@ -223,6 +273,22 @@ class mwc_front_Settings_Page {
         print('<p class="description" id="telephone-description">Au format international +41 26 xxx xx xx</p>');
     }
     
+    
+    public function email_contact_callback() {
+        printf(
+            '<input type="text" id="email_contact_" class="regular-text"'
+                . 'name="church_contact_infos[email_contact_]"'
+                . 'aria-describedby="email-contact-description" value="%s" />',
+            isset( $this->options['email_contact_'] ) ? esc_attr( $this->options['email_contact_']) : ''
+        );
+        
+        print('<p class="description"'
+                . 'id="email-contact-description">Cette adresse email sera '
+                . 'utilisée dans les formulaires de contact'
+                . '</p>');
+    }
+    
+    
     /** 
      * Get the settings option array and print one of its values
      */
@@ -232,7 +298,21 @@ class mwc_front_Settings_Page {
             isset( $this->options['title'] ) ? esc_attr( $this->options['title']) : ''
         );
     }
+    
+    
+    public function dimanche_callback() {
+        printf(
+            '<input type="text" id="dimanche"'
+                . 'name="church_contact_infos[dimanche]"'
+                . 'aria-describedby="dimanche-description"'
+                . 'value="%s" />',
+            isset( $this->options['dimanche'] ) ? esc_attr( $this->options['dimanche']) : ''
+        );
+        
+        print( '<p class="description" id="dimanche-description">'
+                . 'L\'heure de début et de fin'
+                . '</p>' );
+        
+        print( '<p class="dimanche-infos">au format hh:mm, séparés par un tiret "-"</p>' );
+    }
 }
-
-
-
