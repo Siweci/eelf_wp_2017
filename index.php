@@ -1,25 +1,6 @@
 <?php get_header(); ?>
 
-<header id="main-header" class="header">
-
-    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/slider_1.jpg">
-
-    <div id="slogan">
-
-        <div class="table">
-
-            <div class="text-vertical-center">
-
-                <p>Pour connaître et</p>
-                <p>faire connaître Jésus-Christ</p>
-
-            </div>
-
-        </div><!-- .table -->
-
-    </div><!-- #slogan -->
-
-</header>
+<?php get_template_part( 'parts/header-image-large'); ?>
 
 <div class="container-fluid">
 
