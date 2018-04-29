@@ -33,3 +33,30 @@ function mwc_custom_logo() {
             echo get_bloginfo( 'description' );
     }
 }
+
+
+function mwc_get_next_sunday() {
+    
+    /**
+     * return the next sunday date and infos
+     * @return array next sunday
+     */
+    
+    date_default_timezone_set('Europe/Zurich');
+    
+    $now = new DateTime();
+
+    // recherche dimanche prochain
+    $next_sunday_date = $now->modify('next sunday');
+    $next_sunday_timestamp = $next_sunday_date->getTimeStamp();
+
+    setlocale(LC_TIME, 'fr_FR');
+
+    return array(
+        'day_number' => $next_sunday_date->format('d'),
+        'day_name' => strftime('%A', $next_sunday_timestamp),
+        'month' => utf8_encode( strftime('%B', $next_sunday_timestamp) ),
+        'year' => $next_sunday_date->format('Y')
+    );
+    
+}
