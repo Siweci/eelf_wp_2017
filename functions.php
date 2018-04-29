@@ -44,7 +44,7 @@ function mwc_dump($datas) {
 
 
 if ( is_admin() ) {
-    $my_settings_page = new mwc_front_Settings_Page();
+    $my_settings_page = new mwc_front_Church_settings_page();
 }
 
 
