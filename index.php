@@ -8,47 +8,76 @@
 
 
         <!-- NEXT EVENT -->
+        
+            <?php $next_sunday = mwc_get_next_sunday(); ?>
+        
+            <?php
+            $args = array(
+                'category_name' => 'evenement',
+                'posts_per_page' => 1
+            );
 
-            <div id="next-event" class="col-xs-12">
+            $next_event = new WP_Query( $args );
+            ?>
 
-                <div class="row">
+            <?php if ( $next_event->have_posts() ) : while ( $next_event->have_posts() ) : $next_event->the_post(); ?>
 
-                    <div id="next-event-illustration" class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-3 col-md-offset-2">
+                <div id="next-event" class="col-xs-12">
 
-                        <div class="row">
+                    <div class="row">
 
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/church@2x.jpg" class="img-responsive" >
+                        <div id="next-event-illustration" class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-3 col-md-offset-2">
 
-                            <div class="media">
+                            <div class="row">
 
-                                <div class="media-left">
-                                    <span id="next-event-day"><?php echo $next_sunday['day_number']; ?></span>
-                                </div>
+                                <?php the_post_thumbnail( '', array('class' => 'img-responsive' ) ); ?>
 
-                                <div class="media-body">
-                                    <span id="next-envent-month" class="media-heading">
-                                        <?php echo $next_sunday['month']; ?>
-                                    </span>
-                                  <span id="next-event-hour">10:00</span>
-                                </div>
+                                <div class="media">
 
-                            </div><!-- .media -->
+                                    <div class="media-left">
+                                        <span id="next-event-day"><?php echo $next_sunday['day_number']; ?></span>
+                                    </div>
 
+                                    <div class="media-body">
+
+                                        <span id="next-envent-month" class="media-heading">
+                                            <?php echo $next_sunday['month']; ?>
+                                        </span>
+
+                                        <span id="next-event-hour">
+                                            <?php echo mwc_front_Contacts::get_times('dimanche', 'debut'); ?>
+                                        </span>
+
+                                    </div>
+
+                                </div><!-- .media -->
+
+                            </div>
+
+                        </div><!-- #next-event-illustration -->
+
+                        <div class="col-xs-12 col-md-5 text-center">
+                            <h1>Prochain événement</h1>
+                            <h2><?php the_title(); ?></h2>
+                            
+                            
+                            <?php if ( !mwc_is_empty_content() ) : ?>
+                            
+                                <a href="<?php the_permalink(); ?>" id="next-event-more"
+                                   class="more btn btn-lg btn-green">
+                                    Lire plus
+                                </a>
+                            
+                            <?php endif; ?>
                         </div>
 
-                    </div><!-- #next-event-illustration -->
+                    </div><!-- .row -->
 
-                    <div class="col-xs-12 col-md-5 text-center">
-                        <h1>Prochain événement</h1>
-                        <h2>Culte du dimanche</h2>
-                        <?php // include 'parts/btn-lire-plus.php'; ?>
-                    </div>
+                </div><!-- #next-event -->
 
-                </div><!-- .row -->
-
-            </div><!-- #next-event -->
-
-
+            <?php endwhile; endif; ?>
+            
+            <?php wp_reset_query(); ?>
 
         <!-- SPECIAL EVENT -->
 
@@ -68,8 +97,6 @@
         
         $services = new WP_Query( $args );
         ?>
-        
-        
         
         <section id="services" class="col-xs-12">
 
