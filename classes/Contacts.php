@@ -83,6 +83,9 @@ class mwc_front_Contacts {
         
         $horaires = explode( '-', $horaire );
         
+        
+        // vérifie si l'heure de fin du meeting a été renseignée
+        
         if ( count($horaires) == 2 ) {
 
             $end = $horaires[1];
@@ -92,11 +95,15 @@ class mwc_front_Contacts {
             $end = '';
         }
         
-        if ( $time == 'start' ) {
+        
+        
+        // formate les informations à retourner
+        
+        if ( $time == 'start' || $time == 'debut' ) {
             
             return $horaires[0];
             
-        } else if ($time == 'end') {
+        } else if ( $time == 'end' || $time == 'fin') {
             
             return $end;
             
