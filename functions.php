@@ -221,6 +221,18 @@ function mwc_remove_footer_admin($param) {
 add_filter('admin_footer_text', 'mwc_remove_footer_admin');
 
 
+function mwc_is_empty_content() {
+    
+    $content = get_the_content();
+    
+    $cont = strip_tags($content);
+    
+    $cont = str_replace('&nbsp;', '', $cont);
+    
+    return trim($cont) == '';
+}
+
+
 
 require 'functions/functions-ajax.php';
 require 'functions/functions-custom.php';
