@@ -77,57 +77,45 @@
 
         <!-- SERVICES -->
 
+        <?php
+        $args = array(
+            'post_type' => 'page',
+            'post_name__in' => array('nos-messages', 'nous-trouver', 'nos-activites'),
+            'orderby' => 'menu_order',
+            'order' => 'ASC'
+        );
+        
+        $services = new WP_Query( $args );
+        ?>
+        
+        
+        
         <section id="services" class="col-xs-12">
 
             <div class="row">
+                
+                <?php if ( $services->have_posts() ) : while ( $services->have_posts() ) : $services->the_post(); ?>
+                    
+                    <article id="<?php echo $post->post_name; ?>" class="col-xs-12 col-md-4">
 
-                <article id="find-us" class="col-xs-12 col-md-4">
+                        <a href="<?php the_permalink(); ?>" class="thumbnail no-padding no-border">
+                            
+                            <?php the_post_thumbnail(); ?>
+                            
+                            <div class="caption">
+                                <h3>
+                                    <?php the_title(); ?>
+                                    <span class="pull-right">
+                                        <i class="fa fa-long-arrow-right fa-lg" aria-hidden="true"></i>
+                                    </span>
+                                </h3>
+                            </div>
+                            
+                        </a>
 
-                    <a href="find-us.php" class="thumbnail no-padding no-border">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/map_on_mobile_screen.jpg" alt=""/>
-                        <div class="caption">
-                            <h3>
-                                Nous trouver
-                                <span class="pull-right">
-                                    <i class="fa fa-long-arrow-right fa-lg" aria-hidden="true"></i>
-                                </span>
-                            </h3>
-                        </div>
-                    </a>
-
-                </article>
-
-                <article id="messages" class="col-xs-12 col-md-4">
-
-                    <a href="#" class="thumbnail no-padding no-border">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/woman_headphones.jpg" alt=""/>
-                        <div class="caption">
-                            <h3>
-                                Messages
-                                <span class="pull-right">
-                                    <i class="fa fa-long-arrow-right fa-lg" aria-hidden="true"></i>
-                                </span>
-                            </h3>
-                        </div>
-                    </a>
-
-                </article>
-
-                <article id="infos" class="col-xs-12 col-md-4">
-
-                    <a href="activites.php" class="thumbnail no-padding no-border">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/meeting.jpg" alt=""/>
-                        <div class="caption">
-                            <h3>
-                                Nos activités
-                                <span class="pull-right">
-                                    <i class="fa fa-long-arrow-right fa-lg" aria-hidden="true"></i>
-                                </span>
-                            </h3>
-                        </div>
-                    </a>
-
-                </article>
+                    </article>
+                
+                <?php endwhile; endif; ?>
 
             </div>
 
