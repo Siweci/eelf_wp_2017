@@ -210,7 +210,12 @@ function mwc_e($string) {
 }
 
 
+
 function mwc_remove_footer_admin($param) {
+    
+    /**
+     * customize footer with society name
+     */
     
     echo '<span class="mwc-promo">'
         . 'Une réalisation de '
