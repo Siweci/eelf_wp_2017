@@ -57,6 +57,24 @@
                         </div><!-- #next-event-illustration -->
 
                         <div class="col-xs-12 col-md-5 text-center">
+                            
+                            <?php the_field( 'numero_prive', 'option' ); ?>
+                            <?php
+                            $informations_de_contact = get_field( 'informations_de_contact', 'option');
+                            mwc_dump($informations_de_contact);
+                            
+                            if ( have_rows('informations_de_contact', 'option') ):
+                                
+                                while( have_rows('informations_de_contact', 'option')) : the_row();
+                                    
+                                    the_sub_field('rue');
+                                    
+                                endwhile;
+                                
+                            endif;
+                            mwc_dump( get_field('horaires', 'options') );
+                            ?>
+                            
                             <h1>Prochain événement</h1>
                             <h2><?php the_title(); ?></h2>
                             
