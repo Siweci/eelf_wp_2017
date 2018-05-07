@@ -226,7 +226,12 @@ function mwc_remove_footer_admin($param) {
 add_filter('admin_footer_text', 'mwc_remove_footer_admin');
 
 
+
 function mwc_is_empty_content() {
+    
+    /**
+     * check if content is really empty
+     */
     
     $content = get_the_content();
     
