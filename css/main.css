@@ -141,8 +141,8 @@ button.close {
 }
 
 /*DADEE4*/
-
-#message {
+/* Vérifier l'impact du changement de nom de message > footer-message */
+#footer-message {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -662,9 +662,23 @@ footer a {
     padding-right: 0;
 }
 
+#send-message button:focus {
+    outline: none;
+}
+
 #send-message button img {
     width: 55px;
     height: auto;
+}
+
+#send-message #message-center {
+    margin-top: 32px;
+    font-size: 18px;
+    font-weight: 300;
+    background: #c8e5bc;
+    border-color: #c8e5bc;
+    outline: none;
+    box-shadow: none;
 }
 
 
@@ -1142,7 +1156,7 @@ footer a {
     
     #horaires .main-content {
         position: relative;
-        top: -46px;
+        top: -27px; /*origine -46px */
         height: 254px;
         padding-top: 36px;
         padding-bottom: 46px;
