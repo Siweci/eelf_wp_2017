@@ -109,6 +109,7 @@ function getDatasForms(f, s) {
     var input = getInputValues(f);
     var select = getSelectedValues(f);
     var textarea = getTextareaValues(f);
+//    var hidden = getHiddenValues(f);
 
     // regroupe les valeurs dans un objet datas
     var datas = jQuery.extend({}, input, select, textarea);
