@@ -53,6 +53,22 @@ class mwc_front_Contacts {
     }
     
     
+    public static function print_bloc_adresse() {
+        
+        $contact_infos = self::get_option();
+        
+        printf(
+               '<p>%1$s</p><p>%2$s</p><p>%3$s %4$s</p>',
+                self::get_adresse( 'rue' ),
+                self::get_adresse( 'complement' ),
+                self::get_adresse( 'cp' ),
+                self::get_adresse( 'ville' )
+        );
+    }
+
+
+
+
     public static function print_telephone_link() {
         
         $contact_infos = get_option( 'church_contact_infos' );
