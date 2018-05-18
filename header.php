@@ -53,7 +53,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a class="navbar-brand" href="index.php">
+                <a class="navbar-brand" href="<?php echo home_url( '/' ); ?>">
                     <?php mwc_custom_logo(); ?>
                 </a>
             </div>
