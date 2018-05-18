@@ -89,6 +89,19 @@ class mwc_front_Contacts {
     }
     
     
+    public static function print_email_link() {
+        
+        $contact_infos = get_option( 'church_contact_infos' );
+        
+        $email = $contact_infos['email_contact'];
+        
+        printf(
+            '<a href="mailto:%1$s">%1$s</a>',
+            $email
+        );
+    }
+    
+    
     public static function get_times( $meeting = 'dimanche', $time = ''  ) {
         
         $contact_infos = self::get_option();
