@@ -31,7 +31,7 @@ class mwc_front_Contacts {
         
         $contact_infos = self::get_option();
         
-        $valid_field_names = array( 'rue', 'cp', 'ville' );
+        $valid_field_names = array( 'rue', 'complement', 'cp', 'ville' );
         
         if ( $range == 'full' ) {
             
