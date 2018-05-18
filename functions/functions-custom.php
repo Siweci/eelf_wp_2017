@@ -86,3 +86,16 @@ if( function_exists('acf_add_options_page') ) {
 //    ));
 //	
 }
+
+
+/**********************************************************************/
+/*                      GOOGLE MAP API KEY                            */
+/**********************************************************************/
+
+function my_acf_init() {
+	
+//    acf_update_setting('google_api_key', 'AIzaSyC8Ksy1ZfTr7OB9BIQiBRB8FqUYUPiWUCk');
+    acf_update_setting('google_api_key', 'AIzaSyDuAfEOVs9XbpapBRNeG3EKVwMJ2yE0O1s');
+}
+
+add_action('acf/init', 'my_acf_init');
