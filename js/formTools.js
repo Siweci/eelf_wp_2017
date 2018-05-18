@@ -182,10 +182,12 @@ function getTextareaValues(form) {
     return textarea;
 }
 
+
 function resetFieldError($group) {
     $group.removeClass("has-error");
     $group.find(".field-message").remove();
 }
+
 
 function showFieldError($group, $inp, texte) {
     $group.addClass("has-error");
@@ -196,6 +198,7 @@ function showFieldError($group, $inp, texte) {
         style: "font-size: smaller"
     }).insertAfter($inp);
 }
+
 
 function showMessages(form, msg, classe, options) {
     
@@ -277,5 +280,30 @@ function showMessages(form, msg, classe, options) {
 
         localButtonClose.css(o.localButtonCloseCss);
     }
+    
+}
+
+
+function swapParams(datas, sourceParam, targetParam, deleteSource = true) {
+    
+    /**
+     * Change les valeurs de deux paramètres
+     * 
+     * Par exemple pour passer à email la valeur de imerle
+     * et supprimer imerle
+     * 
+     * @param {object} datas l'object à modifier 
+     * @param {string} sourceParam le nom du paramètre source 
+     * @param {string} targetParamle nom du paramètre target 
+     * @param {boolean} deleteSource s'il faut supprimer la source 
+     */
+    
+    datas[targetParam] = datas[sourceParam];
+    
+    if (deleteSource) {
+        delete datas[sourceParam];
+    }
+    
+    return datas;
     
 }
