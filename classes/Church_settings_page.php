@@ -125,6 +125,14 @@ class mwc_front_Church_settings_page {
         );
         
         add_settings_field(
+            'complement', //ID
+            'Complément d\'adresse', // TItle
+            array( $this, 'complement_callback' ), // Callback
+            'church-admin',
+            'contact_section_id'
+        );
+        
+        add_settings_field(
             'cp', //ID
             'Code postal', // TItle
             array( $this, 'cp_callback' ), // Callback
@@ -228,6 +236,7 @@ class mwc_front_Church_settings_page {
     /** 
      * Get the settings option array and print one of its values
      */
+    
     public function rue_callback() {
         printf(
             '<input type="text" id="rue" class="regular-text"'
@@ -241,6 +250,17 @@ class mwc_front_Church_settings_page {
                 . ' le numéro séparés par un espace'
                 . '</p>');
     }
+    
+    public function complement_callback() {
+        printf(
+            '<input type="text" id="complement" class="regular-text"'
+                . 'name="church_contact_infos[complement]"'
+                . 'aria-describedby="complement-description" value="%s" />',
+            isset( $this->options['complement'] ) ? esc_attr( $this->options['complement']) : ''
+        );
+    }
+    
+    
     
     public function cp_callback() {
         printf(
@@ -277,9 +297,9 @@ class mwc_front_Church_settings_page {
     public function email_contact_callback() {
         printf(
             '<input type="text" id="email_contact_" class="regular-text"'
-                . 'name="church_contact_infos[email_contact_]"'
+                . 'name="church_contact_infos[email_contact]"'
                 . 'aria-describedby="email-contact-description" value="%s" />',
-            isset( $this->options['email_contact_'] ) ? esc_attr( $this->options['email_contact_']) : ''
+            isset( $this->options['email_contact'] ) ? esc_attr( $this->options['email_contact']) : ''
         );
         
         print('<p class="description"'
