@@ -90,7 +90,7 @@ add_action( 'after_setup_theme', 'custom_theme_features' );
 /* La gestion des images */
 
 if ( function_exists( 'add_image_size' ) ) { 
-	// add_image_size( 'galerie-photo', 285, 145, true );
+	 add_image_size( 'galerie-activite', 358, 239, true );
 }
 
 
