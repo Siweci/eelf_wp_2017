@@ -225,7 +225,8 @@ function showMessages(form, msg, classe, options) {
         // reset
         $messageCenter
                 .removeClass()
-                .empty();
+                .empty()
+                .css("position", "relative");
         
         // ajoute le message
         $messageCenter
