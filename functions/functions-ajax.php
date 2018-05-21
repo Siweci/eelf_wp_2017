@@ -8,9 +8,12 @@ function front_main() {
     
     switch ($datas['action']) {
 
-        case '':
+        case 'send_message':
 
-            // sendFormContactDatas($datas);
+            mwc_front_Mails::init();
+    
+            echo mwc_front_Mails::send_local_mail($datas);
+            
             break;
 
         default:
