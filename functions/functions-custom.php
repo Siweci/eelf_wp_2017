@@ -89,6 +89,57 @@ if( function_exists('acf_add_options_page') ) {
 
 
 /**********************************************************************/
+/*                        FILTERS FOR WP_MAIL                         */
+/**********************************************************************/
+
+
+/**
+ * Applique les filtres pour modifier l'expéditeur par défaut des emails
+ * envoyés depuis le site
+ */
+
+
+function mwc_custom_mail_from( $email_from ) {
+    return 'test.webconseil@gmail.com'; 
+}
+add_filter( 'wp_mail_from', 'mwc_custom_mail_from' );
+
+
+function mwc_custom_mail_from_name( $email_name ) {
+    return 'JMarc';
+}
+add_filter( 'wp_mail_from_name', 'mwc_custom_mail_from_name' );
+
+
+/*
+ * Modifie les paramètres pour mwc_front_Mails
+ */
+
+
+function mwc_custom_mail_subject( $subject ) {
+    return 'Nous vous sommons de nous donner des informations';
+}
+//add_filter( 'mwc_change_mail_subject', 'mwc_custom_mail_subject' );
+
+
+
+function mwc_custom_mail_options( $default_parameters ) {
+    
+//    $to = mwc_front_Contacts::get_email();
+    $to = 'test.webconseil@gmail.com';
+    
+    $parameters = array(
+        'use_acf_fields' => false,
+        'to' => $to
+    );
+    
+    return wp_parse_args( $parameters, $default_parameters );
+}
+
+add_filter( 'mwc_custom_acf_options', 'mwc_custom_mail_options' );
+
+
+/**********************************************************************/
 /*                      GOOGLE MAP API KEY                            */
 /**********************************************************************/
 
