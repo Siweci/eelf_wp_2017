@@ -17,7 +17,7 @@
     
     <div class="row">
         
-        <div id="<?php echo $post->post_name; ?>" class="col-xs-12 col-md-10 col-md-offset-1">
+        <div id="<?php echo $post->post_name; ?>" class="page-content col-xs-12 col-md-10 col-md-offset-1">
             
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
             

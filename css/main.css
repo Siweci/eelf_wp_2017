@@ -1001,14 +1001,14 @@ footer a {
 
 
 
-/* CONFESSION DE FOI
+/* PAGE-NO-HEADER
 -----------------------------------------------------------------*/
 
-#confession-de-foi {
+.page-template-text-no-header .page-content {
     padding-bottom: 50px;
 }
 
-#confession-de-foi p {
+.page-template-text-no-header {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     color: #7e8e9d;
