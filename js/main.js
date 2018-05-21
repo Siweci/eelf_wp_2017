@@ -12,6 +12,9 @@ jQuery(function($) {
         
         var datas = getDatasForms(form, settings);
         
+        // reset message center
+        $("#message-center").removeClass().empty();
+        
         console.log("datas");
         console.log(datas);
         
@@ -46,6 +49,8 @@ jQuery(function($) {
                 
                 var msg = "Merci de votre intérêt, votre message a bien été envoyé";
                 var classe = "alert alert-success";
+                
+                $("#send-message-button").attr("disabled", "disabled");
                 
             } else {
                 
