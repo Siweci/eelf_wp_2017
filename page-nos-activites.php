@@ -4,7 +4,6 @@
 
 <?php get_template_part( 'parts/header-no-text' ); ?>
 
-<?php wp_reset_postdata(); ?>
 <?php
 $args = array(
     'post_type' => 'activites',
