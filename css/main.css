@@ -783,37 +783,37 @@ footer a {
 /* SERVICES
 -----------------------------------------------------------------*/
 
-#services {
+#nos-activites {
     
 }
 
-#services .thumbnail {
+#nos-activites .thumbnail {
     background: #4a90e2;
 }
 
 
-#services .thumbnail h3 {
+#nos-activites .thumbnail h3 {
     font-family: 'Roboto', sans-serif;
     font-size: 28px;
     color: #fff;
     font-weight: 400;
 }
 
-#services a:hover {
+#nos-activites a:hover {
     text-decoration: none;
 }
 
-#services a:focus {
+#nos-activites a:focus {
     outline: 0;
     text-decoration: none;
 }
 
-#services a:hover h3 {
+#nos-activites a:hover h3 {
     color: #191971;
     /*color: rgba(0, 0, 0, 0.65);*/
 }
 
-#services img {
+#nos-activites img {
     width: 100%;
 }
 
@@ -956,25 +956,25 @@ footer a {
 /* INFOS OU MINISTERE
 -----------------------------------------------------------------*/
 
-#services img.media-object {
+#nos-activites img.media-object {
     width: 100px;
     height: auto;
 }
 
-#services .media-body h3 {
+#nos-activites .media-body h3 {
     font-size: 30px;
 }
 
-#services .panel-heading {
+#nos-activites .panel-heading {
     padding: 0;
 }
 
-#services .panel-heading img ~  h3 {
+#nos-activites .panel-heading img ~  h3 {
     margin-top: 14px;
 }
 
-#services .panel-heading h3,
-#services .media-body h3 {
+#nos-activites .panel-heading h3,
+#nos-activites .media-body h3 {
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
     font-size: 23px;
@@ -983,7 +983,7 @@ footer a {
     line-height: 28px;
 }
 
-#services .panel-body p {
+#nos-activites .panel-body p {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     color: #7e8e9d;
@@ -991,7 +991,7 @@ footer a {
     line-height: 25px;
 }
 
-#services .panel-footer {
+#nos-activites .panel-footer {
     min-height: 40px;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
@@ -1178,13 +1178,13 @@ footer a {
     
     /* SERVICES */
     
-    #services {
+    #nos-activites {
         margin-top: 104px; /*60px*/
         margin-bottom: 90px;
     }
     
     
-    #special-event ~ #services {
+    #special-event ~ #nos-activites {
         margin-top: 0;
     }
     
@@ -1231,7 +1231,7 @@ footer a {
     
     /* INFOS */
     
-    #services .panel {
+    #nos-activites .panel {
         margin-bottom: 40px;
     }
 }
