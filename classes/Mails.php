@@ -28,6 +28,13 @@ class mwc_front_Mails {
     
     
     static function init() {
+        
+        /**
+         * To customize parameters using add_filter in a function file
+         *  - wp_mail_from for email adress
+         *  - wp_mail_from_name for email name
+         */
+        
         $self = new self();
         
         
@@ -36,18 +43,22 @@ class mwc_front_Mails {
          * Set default values for parameters using filters
          */
         
+        // Set email title
+        
         add_filter( 'mwc_change_mail_subject', array( $self, 'set_subject' ) );
         
         self::$subject = apply_filters(
                             'mwc_change_mail_subject',
-                            "Une demande d'informations depuis le site relation-aide.com"
+                            "Une demande d'information depuis le site eelf.ch"
         );
         
         
-        add_filter( 'mwc_parameters', array( $self, 'set_parameters' ) );
+        // Set names for ACF custom key fields
+        
+        add_filter( 'mwc_custom_acf_options', array( $self, 'set_parameters' ) );
         
         self::$fields = apply_filters(
-                            'mwc_custom_options',
+                            'mwc_custom_acf_options',
                             array(
                                 'answer_to_asker' => 'answer_to_asker',
                                 'email_partner' => 'email_partner'
@@ -57,12 +68,10 @@ class mwc_front_Mails {
     
     
     static function set_subject( $subject ) {
-        
         return $subject;
     }
     
-    static function set_paramters( $default_parameters ) {
-        
+    static function set_parameters( $default_parameters ) {
         return $default_parameters;
     }
     
@@ -213,22 +222,29 @@ class mwc_front_Mails {
         }
         
         
-        /**
-         * Applique les filtres pour modifier l'expéditeur
-         */
-        
-//        add_filter( 'wp_mail_from', array( get_called_class(), 'set_mail_from' ) );
-//        add_filter( 'wp_mail_from_name', array( get_called_class(), 'set_mail_from_name') );
-        
-        
         
         /*
          * Détermine le email du destinataire
          */
         
-        $to = get_field( self::$fields['email_partner'], $datas['post_id'] );
+        $fields = self::$fields;
+        
+        if ( !$fields['use_acf_fields'] && !empty($fields['to']) ) {
+            
+            $to = $fields['to'];
+            
+        } else {
+            
+            $to = get_field( $fields['email_partner'], $datas['post_id'] );
+        }
         
         
+        if ( empty ($to) ) {
+            return json_encode(array(
+                'succes' => false,
+                'msg' => 'Could not set valid email recipient'
+            ));
+        }
         
         /*
          * préparation du message
@@ -253,7 +269,7 @@ class mwc_front_Mails {
          * Envoie le mail
          */
         $sent = wp_mail($to, self::$subject, $message, self::$headers, $attachments);
-
+        
         // réinitialise le mode (text)
         remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
 
