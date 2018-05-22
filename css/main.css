@@ -783,37 +783,37 @@ footer a {
 /* SERVICES
 -----------------------------------------------------------------*/
 
-#nos-activites {
+#services {
     
 }
 
-#nos-activites .thumbnail {
+#services .thumbnail {
     background: #4a90e2;
 }
 
 
-#nos-activites .thumbnail h3 {
+#services .thumbnail h3 {
     font-family: 'Roboto', sans-serif;
     font-size: 28px;
     color: #fff;
     font-weight: 400;
 }
 
-#nos-activites a:hover {
+#services a:hover {
     text-decoration: none;
 }
 
-#nos-activites a:focus {
+#services a:focus {
     outline: 0;
     text-decoration: none;
 }
 
-#nos-activites a:hover h3 {
+#services a:hover h3 {
     color: #191971;
     /*color: rgba(0, 0, 0, 0.65);*/
 }
 
-#nos-activites img {
+#services img {
     width: 100%;
 }
 
@@ -1178,7 +1178,7 @@ footer a {
     
     /* SERVICES */
     
-    #nos-activites {
+    section#nos-activites {
         margin-top: 104px; /*60px*/
         margin-bottom: 90px;
     }
