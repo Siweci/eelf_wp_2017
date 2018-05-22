@@ -55,7 +55,7 @@ if ( is_admin() ) {
 
 /* Register custom navigation walker*/
 
-require_once( $home_path .'/wp_bootstrap_navwalker.php' );
+require_once( get_template_directory() .'/functions/wp_bootstrap_navwalker.php' );
 
 
 /* Register Theme Features */
