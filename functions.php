@@ -91,6 +91,7 @@ add_action( 'after_setup_theme', 'custom_theme_features' );
 
 if ( function_exists( 'add_image_size' ) ) { 
 	 add_image_size( 'galerie-activite', 358, 239, true );
+         add_image_size( 'galerie-main-event', 496, 372, true );
 }
 
 

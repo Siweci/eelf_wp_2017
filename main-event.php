@@ -254,68 +254,53 @@
         </div>
 
     </section><!-- #tarifs -->
+    
 
-    <section id="galerie-photos" class="main-section">
-        
-        <div class="container-fluid">
-            
-            <div class="row">
+    <?php
+    $images = get_field( 'galerie_photos' );
 
-                <div class="col-xs-12 col-md-10 col-md-offset-1">
+    if ( $images ): ?>
 
-                    <h3 class="col-xs-12 text-center">Les photos du week-end d'Eglise 2017</h3>
+        <section id="galerie-photos" class="main-section">
 
-                    <div class="content">
+            <div class="container-fluid">
 
-                        <div class="col-xs-6 col-md-3">
-                            <img src="images/camp-1.jpg"
-                                 class="img-responsive img-rounded" alt=""/>
-                        </div>
+                <div class="row">
 
-                        <div class="col-xs-6 col-md-3">
-                            <img src="images/camp-2.jpg"
-                                 class="img-responsive img-rounded" alt=""/>
-                        </div>
+                    <div class="col-xs-12 col-md-10 col-md-offset-1">
 
-                        <div class="col-xs-6 col-md-3">
-                            <img src="images/camp-3.jpg"
-                                 class="img-responsive img-rounded" alt=""/>
-                        </div>
+                        <?php if ( get_field( 'galerie_photos_title' ) ): ?>
 
-                        <div class="col-xs-6 col-md-3">
-                            <img src="images/camp-4.jpg"
-                                 class="img-responsive img-rounded" alt=""/>
-                        </div>
+                            <h3 class="col-xs-12 text-center">
+                                <?php the_field( 'galerie_photos_title'); ?>
+                            </h3>
 
-                        <div class="col-xs-6 col-md-3">
-                            <img src="images/camp-5.jpg"
-                                 class="img-responsive img-rounded" alt=""/>
-                        </div>
+                        <?php endif; ?>
 
-                        <div class="col-xs-6 col-md-3">
-                            <img src="images/camp-6.jpg"
-                                 class="img-responsive" alt=""/>
-                        </div>
+                        <div class="content">
 
-                        <div class="col-xs-6 col-md-3">
-                            <img src="images/camp-7.jpg"
-                                 class="img-responsive img-rounded" alt=""/>
-                        </div>
+                            <?php foreach ( $images as $image ): ?>
 
-                        <div class="col-xs-6 col-md-3">
-                            <img src="images/camp-8.jpg"
-                                 class="img-responsive img-rounded" alt=""/>
+                                <div class="col-xs-6 col-md-3">
+                                    <img src="<?php echo $image['sizes']['galerie-main-event']; ?>"
+                                         class="img-responsive img-rounded" alt="<?php echo $image['alt']; ?>"/>
+                                </div>
+
+                            <?php endforeach; ?>
+
                         </div>
 
                     </div>
 
                 </div>
-                
-            </div>
-            
-        </div>
 
-    </section>
+            </div>
+
+        </section>
+                        
+    <?php endif; ?>
+    
+    
 
     <section id="personnes-contact" class="main-section">
         
