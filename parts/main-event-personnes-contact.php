@@ -2,6 +2,11 @@
 
 <?php if( have_rows('organisateurs') ): ?>
 
+    <?php
+    $count_organisateurs = count(get_field('organisateurs'));
+    $class_flex = ($count_organisateurs <=3 ) ? 'flex' : '';
+    ?>
+
     <section id="personnes-contact" class="main-section">
 
         <div class="container-fluid">
@@ -16,7 +21,7 @@
 
                         <div class="row">
 
-                            <div class="content"><!-- .flex -->
+                            <div class="<?php echo "content $class_flex"; ?>"><!-- .flex -->
 
 
                                 <?php
