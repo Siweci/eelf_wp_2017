@@ -7,6 +7,10 @@
 
 <div id="<?php echo $page_slug; ?>">
     
+<?php if ( have_posts() ): while ( have_posts() ) : the_post(); ?>
+                        
+    <?php $content = get_extended( $post->post_content ); ?>
+    
     <section id="basic-infos" class="main-section" role="article">
     
         <div class="container-fluid">
@@ -19,7 +23,7 @@
                         
                         <aside id="register-form" class="col-xs-12 col-md-5 text-center">
                             
-                            <h1>Week-end d'Eglise</h1>
+                            <h1><?php the_title(); ?></h1>
                             
                             <div class="date">Du 28 au 30 septembre 2018</div>
                             
@@ -39,21 +43,17 @@
                             </div>
                             
                         </aside>
-
+                        
                         <main class="col-xs-12 col-md-6 col-md-offset-1">
 
 <!--                            <h1>Week-end d'Eglise</h1>-->
 
                             <article id="description">
 
-                                <p>
-                                    Le week-end aura lieu du 28 au 30 septembre 2018.
-                                    Il aura lieu à Isenfluh, dans un cadre champêtre et convivial.
-                                </p>
-                                <p>
-                                    <strong>Date limite d'inscription le 19 septembre 2018</strong>
-                                </p>
-                                <p>Tout le monde est convié.</p>
+                                <?php
+                                // display excerpt
+                                echo apply_filters( 'the_content', $content['main']) ;
+                                ?>
 
                             </article>
 
@@ -119,7 +119,10 @@
 
                                     <div class="panel-body">
                                         
-                                        <?php include 'includes/infos_complementaires.php'; ?>
+                                        <?php
+                                        // Displays extended
+                                        echo apply_filters( 'the_content', $content['extended']) ;
+                                        ?>
                                         
                                     </div>
 
@@ -653,6 +656,8 @@
         </div>
         
     </section>
+    
+<?php endwhile; endif; ?>
     
 </div>
 

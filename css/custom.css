@@ -61,6 +61,7 @@
 
 .panel-no-border {
     background-color: transparent;
+    box-shadow: none;
 }
 
 .panel-no-border-in .panel-heading {
