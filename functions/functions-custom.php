@@ -89,6 +89,36 @@ if( function_exists('acf_add_options_page') ) {
 
 
 /**********************************************************************/
+/*                      POSTs AND CUSTOM POSTS                        */
+/**********************************************************************/
+
+
+/* Change le texte du placeholder du post title */
+
+function mwc_title_placeholder( $title ) {
+    
+    $screen = get_current_screen();
+    $post_type = $screen->post_type;
+    
+    switch ($post_type) {
+        case 'benevole':
+
+            $title = "Saisissez le prénom et le nom du bénévole";
+            break;
+
+        default:
+            break;
+    }
+    
+    return $title;
+}
+
+add_filter( 'enter_title_here', 'mwc_title_placeholder' );
+
+
+
+
+/**********************************************************************/
 /*                        FILTERS FOR WP_MAIL                         */
 /**********************************************************************/
 
