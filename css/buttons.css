@@ -69,7 +69,10 @@
 
 
 
-
+.btn-blue {
+    background: #0080ff;
+    color: #fff;
+}
 
 
 /* Groupes de boutons */

@@ -168,8 +168,8 @@ function custom_styles() {
     wp_register_style( 'custom', get_stylesheet_directory_uri() .'/css/custom.css', false, false, 'all' );
     wp_enqueue_style( 'custom' );
     
-    wp_register_style( 'buttons', get_stylesheet_directory_uri() .'/css/buttons.css', false, false, 'all' );
-    wp_enqueue_style( 'buttons' );
+    wp_register_style( 'my-buttons', get_stylesheet_directory_uri() .'/css/buttons.css', false, false, 'all' );
+    wp_enqueue_style( 'my-buttons' );
     
     wp_register_style( 'main', get_stylesheet_directory_uri() .'/css/main.css', false, false, 'all' );
     wp_enqueue_style( 'main' );
