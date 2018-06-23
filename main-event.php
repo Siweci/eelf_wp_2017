@@ -31,12 +31,7 @@
 
                                 <div class="row">
 
-                                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe5WyUSeimajPVnY4qgT0eI-9xlrjIWkSoted6xoKK9upQWKg/viewform?usp=sf_link"
-                                       target="_blank"
-                                       class="inscription-en-ligne btn btn-blue btn-block"
-                                       role="button">
-                                        S'inscrire ici
-                                    </a>
+                                    <?php get_template_part( 'parts/form-url' ); ?>
 
                                 </div>
 
@@ -249,12 +244,7 @@
 
                         <div class="row">
 
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe5WyUSeimajPVnY4qgT0eI-9xlrjIWkSoted6xoKK9upQWKg/viewform?usp=sf_link"
-                               target="_blank"
-                               class="inscription-en-ligne btn btn-blue btn-block"
-                               role="button">
-                                S'inscrire ici
-                            </a>
+                            <?php get_template_part( 'parts/form-url' ); ?>
 
                         </div>
 
