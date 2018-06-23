@@ -232,12 +232,9 @@
                     </table>
                     
                     <div id="meta-tarifs" class="text-justify">
-                        <p>
-                            Les frais seront payés sur place.
-                        </p>
-                        <p>
-                            L'aspect financier ne doit empêcher personne à participer au week-end. Une remise peut être accordée, veuillez contacter Daniel Cherbuin.
-                        </p>
+                        
+                        <?php the_field( 'meta_tarifs' ); ?>
+                        
                     </div>
 
                     <div class="inscription col-xs-12 col-md-4 col-md-offset-4">
@@ -629,14 +626,15 @@
                         
                         <div class="row">
                             
-                            <p>Isenfluh</p>
+                            <?php the_field( 'adresse' ); ?>
                             
                         </div>
                         
                     </div>
                     
                     <div id="map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10961.304451229618!2d7.886918632690129!3d46.620319116103815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478fa1722711c94f%3A0x75964d952b71cc57!2sIsenfluh%2C+3822+Lauterbrunnen!5e0!3m2!1sfr!2sch!4v1529587527548" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        <iframe src="<?php the_field( 'google_map_url' ); ?>"
+                                width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
                     
                 </div>
