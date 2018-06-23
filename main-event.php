@@ -2,7 +2,10 @@
 
 <?php get_header(); ?>
 
-<div id="main-event">
+<?php $page_slug = get_post_field ( 'post_name', get_post() ); ?>
+
+
+<div id="<?php echo $page_slug; ?>">
     
     <section id="basic-infos" class="main-section" role="article">
     
