@@ -94,7 +94,8 @@ if ($date_ed == $date_st) {
 
                             <?php
                             // l'organisateur principal est le premier de la liste des organisateurs
-                            $organisateur_principal = get_field('organisateurs')[0];
+                            $organisateur_principal = get_field('organisateurs');
+                            $organisateur_principal = $organisateur_principal[0];
                             
                             $benevole = $organisateur_principal['nom'];
                             $role = $organisateur_principal['role'];
