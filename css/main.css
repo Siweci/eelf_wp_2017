@@ -1034,12 +1034,18 @@ footer a {
 
 /* COMMONS */
 
-.page-template-main-event h1 {
+.page-template-main-event h1,
+.page-template-main-event #theme {
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
     font-size: 40px;
     color: #000;
     letter-spacing: 0;
+}
+
+.page-template-main-event #theme {
+    line-height: 30px;
+    font-size: 25px;
 }
 
 .page-template-main-event h2 {

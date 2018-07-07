@@ -4,6 +4,41 @@
 
 <?php $page_slug = get_post_field ( 'post_name', get_post() ); ?>
 
+<?php
+/* Traitement des dates */
+$dates = get_field('dates' );
+
+
+$date_start = get_field( 'dates_start', false, false);
+
+$date_st = new DateTime($date_start);
+
+$date_start_year = $date_st->format('Y');
+$date_start_month = $date_st->format('m');
+$date_start_day = $date_st->format('d');
+
+
+
+$date_end = get_field( 'dates_end', false, false);
+
+
+$date_ed = new DateTime($date_end);
+
+$date_end_year = $date_ed->format('Y');
+$date_end_month = $date_ed->format('m');
+$date_end_day = $date_ed->format('d');
+
+if ($date_ed == $date_st) {
+    $date_range = "le " . $dates['start'];
+} else if ($date_end_year == $date_start_year && $date_end_month == $date_start_month) {
+    $date_range = "du " . $date_start_day . " au " . $dates['end'];
+} else {
+    $date_range = "du " . $dates['start'] . " au " . $dates['end'];
+}
+
+
+?>
+
 
 <div id="<?php echo $page_slug; ?>">
     
@@ -21,11 +56,15 @@
 
                     <div class="row">
                         
-                        <aside id="register-form" class="col-xs-12 col-md-5 text-center">
+                        <aside id="register-form" class="col-xs-12 col-md-5 text-left">
                             
                             <h1><?php the_title(); ?></h1>
                             
-                            <div class="date">Du 28 au 30 septembre 2018</div>
+                            <p id="theme"><?php the_field( 'theme' ); ?></p>
+                            
+                            <div class="date">
+                                <?php echo $date_range; ?>
+                            </div>
                             
                             <div class="inscription col-xs-12">
 
@@ -54,7 +93,7 @@
                             
 
                             <?php
-                            // l'organisateur princiaple est le premier de la liste des organisateurs
+                            // l'organisateur principal est le premier de la liste des organisateurs
                             $organisateur_principal = get_field('organisateurs')[0];
                             
                             $benevole = $organisateur_principal['nom'];
