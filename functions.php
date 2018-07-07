@@ -92,6 +92,7 @@ add_action( 'after_setup_theme', 'custom_theme_features' );
 if ( function_exists( 'add_image_size' ) ) { 
 	 add_image_size( 'galerie-activite', 358, 239, true );
          add_image_size( 'galerie-main-event', 496, 372, true );
+         add_image_size( 'benevole-miniature', 80, 80, true);
 }
 
 
@@ -208,6 +209,26 @@ function mwc_e($string) {
     } else {
         _e($string, "smoothblue");
     }
+}
+
+
+/* GOOGLE FUNCTIONS */
+
+function mwc_get_google_photo_id($url) {
+    
+    /*
+     * 
+     * @param string url l'url de la photo google
+     *      au moins en mode preview
+     * @return string id le id de la photo pour qu'il soit exploité dans
+     *      <img src"..." />
+     */
+    
+    $re = '/file\/d?\/(\w*)/m';
+
+    preg_match_all($re, $url, $matches, PREG_SET_ORDER, 0);
+    
+    return $matches[0][1];
 }
 
 

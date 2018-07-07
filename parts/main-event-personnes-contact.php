@@ -1,4 +1,4 @@
-<?php $organisateurs = get_field( 'organisateurs' ); ?>
+<?php $benevoles = get_field( 'organisateurs' ); ?>
 
 <?php if( have_rows('organisateurs') ): ?>
 
@@ -23,36 +23,68 @@
 
                             <div class="<?php echo "content $class_flex"; ?>"><!-- .flex -->
 
-
+                                
                                 <?php
-                                // loop through the rows of data
+                                
+                                /* Set constants */
+                                
+                                $attrs = array('class' => 'img-responsive img-circle');
+                                    
+                                $google_base_url = 'https://drive.google.com/uc?id=';
+
+
+                                /* loop through the rows of data */
+                                
                                 while ( have_rows('organisateurs') ) : the_row();
 
                                     $nom = get_sub_field( 'nom' );
-                                    $organisateur = $nom[0];
-
+                                    
                                     $role = get_sub_field( 'role' );
 
                                     $competence = get_sub_field( 'competence' );
+                                    
+                                    
+                                    $benevole = $nom[0];
+                                    
+                                    $benevole_firstname = get_field( 'firstname', $benevole );
 
-                                    $contact_by = get_field( 'contact_by', $organisateur );
+                                    $contact_by = get_field( 'contact_by', $benevole );
+                                   
+                                    $benevole_photo_url = get_field( 'photo_url', $benevole);
+                                    
+                                    $benevole_photo_id = mwc_get_google_photo_id($benevole_photo_url);
+                                    
+                                    
                                 ?>
 
-                                <div class="col-xs-12 col-md-3">
+                                <div class="col-xs-12 col-sm-4 col-md-3">
 
                                     <div class="thumbnail text-center">
 
                                         <div class="background-icone img-circle text-center center-block">
-
-                                            <!--<img src="..." alt="...">-->
-                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            
+                                            <?php if ( has_post_thumbnail($benevole) ): ?>
+                                            
+                                                <?php echo get_the_post_thumbnail( $benevole, 'benevole-miniature', $attrs ); ?>
+                                                
+                                            <?php elseif ( !empty($benevole_photo_id) ): ?>
+                                            
+                                                <img src="<?php echo $google_base_url . $benevole_photo_id; ?>"
+                                                     class="img-responsive img-circle" alt="...">
+                                                
+                                            <?php else:?>
+                                                
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                                
+                                            <?php endif; ?>
 
                                         </div>
 
                                         <div class="caption">
 
-                                            <h4><?php echo $organisateur->post_title; ?></h4>
-
+                                            <h4><?php echo $benevole_firstname; ?></h4>
+                                            <?php // echo $benevole->post_title; ?>
+                                            
                                             <p class="role">
                                                 <?php echo $role; ?>
                                             </p>
@@ -63,15 +95,15 @@
 
                                             <p class="network">
 
-                                                <?php if ( get_field( 'email', $organisateur) && in_array('email', $contact_by) ): ?>
-                                                    <a href="mailto:<?php echo get_field( 'email', $organisateur); ?>"
+                                                <?php if ( get_field( 'email', $benevole) && in_array('email', $contact_by) ): ?>
+                                                    <a href="mailto:<?php echo get_field( 'email', $benevole); ?>"
                                                        class="btn btn-link" role="button">
                                                         <i class="fa fa-envelope-o fa-fw fa-2x" aria-hidden="true"></i>
                                                     </a>
                                                 <?php endif; ?>
 
-                                                <?php if ( get_field( 'mobile', $organisateur) && in_array('mobile', $contact_by) ): ?>
-                                                    <a href="tel:<?php echo get_field( 'mobile', $organisateur); ?>"
+                                                <?php if ( get_field( 'mobile', $benevole) && in_array('mobile', $contact_by) ): ?>
+                                                    <a href="tel:<?php echo get_field( 'mobile', $benevole); ?>"
                                                        class="btn btn-link" role="button">
                                                         <i class="fa fa-mobile fa-fw fa-2x" aria-hidden="true"></i>
                                                     </a>
@@ -85,8 +117,8 @@
 
                                                 <?php endif; ?>
 
-                                                <?php if ( get_field( 'facebook', $organisateur) && in_array('facebook', $contact_by) ): ?>
-                                                        <a href="<?php echo get_field( 'facebook', $organisateur); ?>"
+                                                <?php if ( get_field( 'facebook', $benevole) && in_array('facebook', $contact_by) ): ?>
+                                                        <a href="<?php echo get_field( 'facebook', $benevole); ?>"
                                                            class="btn btn-link" role="button">
                                                             <i class="fa fa-facebook-official fa-fw fa-2x" aria-hidden="true"></i>
                                                         </a>

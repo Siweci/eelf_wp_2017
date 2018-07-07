@@ -1053,9 +1053,9 @@ footer a {
 
 .page-template-main-event .background-icone {
     background: #d7d7d7;
-    width: 65px;
-    height: 65px;
-    line-height: 58px;
+    width: 80px;
+    height: 80px;
+    line-height: 68px;
 }
 
 .page-template-main-event .role {
@@ -1267,6 +1267,7 @@ footer a {
 .page-template-main-event #galerie-photos img {
     margin-bottom: 30px;
 }
+
 
 
 /* PERSONNES A CONTACTER */
