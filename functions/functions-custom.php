@@ -35,6 +35,22 @@ function mwc_custom_logo() {
 }
 
 
+
+/**********************************************************************/
+/*                       NEXT SUNDAY (EVENT)                          */
+/**********************************************************************/
+
+function mwc_set_date_constants () {
+    
+    /* Définit les constantes pour les fonctions de date et de temps */
+    
+    date_default_timezone_set('Europe/Zurich');
+    
+    setlocale(LC_TIME, 'fr_FR');
+}
+add_action( 'wp_loaded', 'mwc_set_date_constants' );
+
+
 function mwc_get_next_sunday() {
     
     /**
@@ -42,19 +58,54 @@ function mwc_get_next_sunday() {
      * @return array next sunday
      */
     
-    date_default_timezone_set('Europe/Zurich');
+//    date_default_timezone_set('Europe/Zurich');
     
     $now = new DateTime();
-
+//    $now->modify('next sunday');
+//    $now->setTime(9, 30);
+//    mwc_dump($now);
+    
+    
+    
     // recherche dimanche prochain
-    $next_sunday_date = $now->modify('next sunday');
+    
+    $today = $now->format("w");
+    
+    $next_sunday_date = new DateTime();
+    
+    if ($today != 0) {
+        
+        // on est pas dimanche
+        $next_sunday_date->modify('next sunday');
+    }
+    
+    
+    $next_sunday_date->setTime(10, 0);
+    
+//    echo "----";
+//    mwc_dump($now);
+//    mwc_dump($next_sunday_date);
+    
+    $interval = $now->diff($next_sunday_date);
+//    mwc_dump($interval);
+    
+    if ($interval->d == 0 && $interval->h < 1) {
+        
+        // le culte commence dans moins d'une heure !
+        // on n'y sera jamais à temps !
+        
+        $next_sunday_date->modify('next sunday');
+        
+    }
+    
     $next_sunday_timestamp = $next_sunday_date->getTimeStamp();
 
-    setlocale(LC_TIME, 'fr_FR');
+//    setlocale(LC_TIME, 'fr_FR');
 
     return array(
         'day_number' => $next_sunday_date->format('d'),
         'day_name' => strftime('%A', $next_sunday_timestamp),
+        'time' => $next_sunday_date->format('H:i'),
         'month' => utf8_encode( strftime('%B', $next_sunday_timestamp) ),
         'year' => $next_sunday_date->format('Y')
     );
