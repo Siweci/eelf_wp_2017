@@ -51,7 +51,18 @@
                                 ?>
 
                             </article>
+                            
 
+                            <?php
+                            // l'organisateur princiaple est le premier de la liste des organisateurs
+                            $organisateur_principal = get_field('organisateurs')[0];
+                            
+                            $benevole = $organisateur_principal['nom'];
+                            $role = $organisateur_principal['role'];
+                            
+                            $benevole_firstname = get_field ( 'firstname', $benevole );
+                            ?>
+                            
                             <div id="organisateur" class="media">
 
                                 <div class="media-left">
@@ -61,10 +72,14 @@
                                     </div>
 
                                 </div>
-
+                                
                                 <div class="media-body">
-                                    <h4 class="media-heading">Daniel Cherbuin</h4>
-                                    <p class="role">Organisateur</p>
+                                    <h4 class="media-heading">
+                                        <?php echo $benevole_firstname; ?>
+                                    </h4>
+                                    <p class="role">
+                                        <?php echo $role; ?>
+                                    </p>
                                 </div>
 
                             </div><!-- #organisateur -->
