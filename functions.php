@@ -152,6 +152,7 @@ add_action('wp_enqueue_scripts', 'my_scripts');
 
 
 // Register Style
+
 function custom_styles() {
 
     wp_register_style( 'bootstrap-min', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css', false, false, 'all' );
