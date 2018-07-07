@@ -33,18 +33,22 @@
                                 $google_base_url = 'https://drive.google.com/uc?id=';
 
 
-                                /* loop through the rows of data */
+                                /* loop through the rows of data of repeater */
                                 
                                 while ( have_rows('organisateurs') ) : the_row();
-
-                                    $nom = get_sub_field( 'nom' );
                                     
+                                    
+                                    // data accessible directly
+                                
+                                    $benevole = get_sub_field( 'nom' );
+                                    
+                                    //face name = nom <=> ACF object bénévole
                                     $role = get_sub_field( 'role' );
-
+                                    
                                     $competence = get_sub_field( 'competence' );
                                     
                                     
-                                    $benevole = $nom[0];
+                                    // data accessible through ACF Object bénévole
                                     
                                     $benevole_firstname = get_field( 'firstname', $benevole );
 
@@ -92,39 +96,43 @@
                                             <p class="meta-role">
                                                 <?php echo $competence; ?>
                                             </p>
+                                            
+                                            <?php if ( is_user_logged_in() ): ?>
 
-                                            <p class="network">
+                                                <p class="network">
 
-                                                <?php if ( get_field( 'email', $benevole) && in_array('email', $contact_by) ): ?>
-                                                    <a href="mailto:<?php echo get_field( 'email', $benevole); ?>"
-                                                       class="btn btn-link" role="button">
-                                                        <i class="fa fa-envelope-o fa-fw fa-2x" aria-hidden="true"></i>
-                                                    </a>
-                                                <?php endif; ?>
-
-                                                <?php if ( get_field( 'mobile', $benevole) && in_array('mobile', $contact_by) ): ?>
-                                                    <a href="tel:<?php echo get_field( 'mobile', $benevole); ?>"
-                                                       class="btn btn-link" role="button">
-                                                        <i class="fa fa-mobile fa-fw fa-2x" aria-hidden="true"></i>
-                                                    </a>
-
-                                                    <?php if ( in_array('whatsapp', $contact_by) ): ?>
-                                                        <a href="https://wa.me/41791951295"
+                                                    <?php if ( get_field( 'email', $benevole) && in_array('email', $contact_by) ): ?>
+                                                        <a href="mailto:<?php echo get_field( 'email', $benevole); ?>"
                                                            class="btn btn-link" role="button">
-                                                            <i class="fa fa-whatsapp fa-fw fa-2x" aria-hidden="true"></i>
+                                                            <i class="fa fa-envelope-o fa-fw fa-2x" aria-hidden="true"></i>
                                                         </a>
                                                     <?php endif; ?>
 
-                                                <?php endif; ?>
-
-                                                <?php if ( get_field( 'facebook', $benevole) && in_array('facebook', $contact_by) ): ?>
-                                                        <a href="<?php echo get_field( 'facebook', $benevole); ?>"
+                                                    <?php if ( get_field( 'mobile', $benevole) && in_array('mobile', $contact_by) ): ?>
+                                                        <a href="tel:<?php echo get_field( 'mobile', $benevole); ?>"
                                                            class="btn btn-link" role="button">
-                                                            <i class="fa fa-facebook-official fa-fw fa-2x" aria-hidden="true"></i>
+                                                            <i class="fa fa-mobile fa-fw fa-2x" aria-hidden="true"></i>
                                                         </a>
-                                                <?php endif; ?>
 
-                                            </p>
+                                                        <?php if ( in_array('whatsapp', $contact_by) ): ?>
+                                                            <a href="https://wa.me/41791951295"
+                                                               class="btn btn-link" role="button">
+                                                                <i class="fa fa-whatsapp fa-fw fa-2x" aria-hidden="true"></i>
+                                                            </a>
+                                                        <?php endif; ?>
+
+                                                    <?php endif; ?>
+
+                                                    <?php if ( get_field( 'facebook', $benevole) && in_array('facebook', $contact_by) ): ?>
+                                                            <a href="<?php echo get_field( 'facebook', $benevole); ?>"
+                                                               class="btn btn-link" role="button">
+                                                                <i class="fa fa-facebook-official fa-fw fa-2x" aria-hidden="true"></i>
+                                                            </a>
+                                                    <?php endif; ?>
+
+                                                </p>
+                                                
+                                            <?php endif; ?>
 
                                         </div>
 
