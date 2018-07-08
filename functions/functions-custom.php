@@ -7,8 +7,8 @@
 function theme_prefix_setup() {
 	
 	add_theme_support( 'custom-logo', array(
-            'width'       => 71,
-            'height'      => 22,
+            'width'       => 71, //71 211
+            'height'      => 22, //22 66
             'flex-width' => true,
             'header-text' => array()
 	) );
