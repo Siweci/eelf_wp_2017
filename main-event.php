@@ -101,25 +101,44 @@ if ($date_ed == $date_st) {
                             $role = $organisateur_principal['role'];
                             
                             $benevole_firstname = get_field ( 'firstname', $benevole );
+                            
+                            $benevole_photo_url = get_field( 'photo_url', $benevole);
+                            $benevole_photo_id = mwc_get_google_photo_id($benevole_photo_url);
                             ?>
                             
                             <div id="organisateur" class="media">
 
                                 <div class="media-left">
+                                    
                                     <div class="media-object img-circle text-center">
-                                        <!--<img class="" src="..." alt="...">-->
-                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        
+                                        <?php if ( has_post_thumbnail($benevole) ): ?>
+                                            
+                                            <?php
+                                            $attrs = array('class' => 'img-responsive img-circle');
+                                            echo get_the_post_thumbnail( $benevole, 'benevole-miniature', $attrs );
+                                            ?>
+                                        
+                                        <?php else: ?>
+                                        
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                        
+                                        <?php endif; ?>
+                                        
                                     </div>
 
                                 </div>
                                 
                                 <div class="media-body">
+                                    
                                     <h4 class="media-heading">
                                         <?php echo $benevole_firstname; ?>
                                     </h4>
+                                    
                                     <p class="role">
                                         <?php echo $role; ?>
                                     </p>
+                                    
                                 </div>
 
                             </div><!-- #organisateur -->
