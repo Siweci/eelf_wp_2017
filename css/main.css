@@ -974,6 +974,10 @@ footer a {
     padding: 0;
 }
 
+#nos-activites .panel-heading img {
+    width: 100%;
+}
+
 #nos-activites .panel-heading img ~  h3 {
     margin-top: 14px;
 }
