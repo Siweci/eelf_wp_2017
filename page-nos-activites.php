@@ -39,7 +39,7 @@ $activites = new WP_Query( $args );
                             </div>
 
                             <div class="panel-body">
-                               <?php the_content(); ?>
+                               <?php the_excerpt(); ?>
                             </div>
 
                             <div class="panel-footer">
