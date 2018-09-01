@@ -44,7 +44,7 @@ $activites = new WP_Query( $args );
 
                         <div class="panel panel-default panel-no-bg panel-no-border-in">
 
-                            <div class="panel-heading text-center">
+                            <div class="panel-heading">
 
                                 <?php the_post_thumbnail(
                                             'galerie-activites',
@@ -54,7 +54,7 @@ $activites = new WP_Query( $args );
 
                             </div>
 
-                            <div class="panel-body">
+                            <div class="panel-body text-justify">
                                <?php the_excerpt(); ?>
                             </div>
 
