@@ -1025,6 +1025,34 @@ footer a {
 
 
 
+.single-activites {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 23px;
+    color: #000;
+    letter-spacing: 0;
+    line-height: 28px;
+}
+
+.single-activites main {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.single-activites td p {
+    text-align: left !important;
+}
+
+.single-activites .content h1 {
+    margin-bottom: 30px;
+}
+
+.single-activites .content > table,
+.single-activites .content .table-responsive {
+    margin-top: 20px;
+}
+
+
 /* PAGE-NO-HEADER
 -----------------------------------------------------------------*/
 

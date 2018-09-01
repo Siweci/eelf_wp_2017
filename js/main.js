@@ -1,6 +1,21 @@
 jQuery(function($) {
+    
+    modifyTable();
 
     $("#send-message-button").click(sendMessage);
+    
+    
+    
+    
+    function modifyTable() {
+        
+        /**
+         * Modifie le markup des tableaux
+         */
+        
+        $(".single-activites").find("table").addClass("table");
+        $(".content > table").wrap("<div class='table-responsive'></div>");
+    }
     
     
     
