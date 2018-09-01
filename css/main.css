@@ -958,7 +958,7 @@ footer a {
 }
 
 
-/* INFOS OU MINISTERE
+/* INFOS OU MINISTERE OU ACTIVITES
 -----------------------------------------------------------------*/
 
 #nos-activites img.media-object {
@@ -1000,6 +1000,11 @@ footer a {
     color: #000;
     letter-spacing: 0;
     line-height: 28px;
+}
+
+#nos-activites .panel-body {
+    height: 115px;
+    overflow: hidden;
 }
 
 #nos-activites .panel-body p {
