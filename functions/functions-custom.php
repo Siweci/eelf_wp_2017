@@ -231,3 +231,16 @@ function my_acf_init() {
 }
 
 add_action('acf/init', 'my_acf_init');
+
+
+function is_empty_content() {
+    
+    /**
+     * Vérifie si un post content est vide
+     * à utiliser dans le loop
+     */
+    
+    $str = get_the_content();
+    $st = strip_tags($str);
+    return trim( str_replace('&nbsp;', '', $st) ) == '';
+}

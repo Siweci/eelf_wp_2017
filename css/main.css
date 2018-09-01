@@ -970,6 +970,16 @@ footer a {
     font-size: 30px;
 }
 
+
+#nos-activites a:hover {
+    text-decoration: none;
+}
+
+#nos-activites a:hover .panel {
+    background: #f8f8ff;
+}
+
+
 #nos-activites .panel-heading {
     padding: 0;
 }
