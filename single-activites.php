@@ -1,16 +1,14 @@
 <?php get_header(); ?>
 
-<?php $page_slug = $post->post_name; ?>
-
 <?php get_template_part( 'parts/header-no-text' ); ?>
 
 <main>
 
-<div class="container">
+    <div class="container">
 
         <div class="row">
 
-            <div id="<?php echo $page_slug; ?>" class="content col-xs-12">
+            <div id="<?php echo $post->post_name; ?>" class="content col-xs-12">
 
                 <!--<div class="row">-->
                     
