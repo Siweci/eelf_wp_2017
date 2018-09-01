@@ -4,11 +4,22 @@
 /* font-family: 'Lato', sans-serif; */
 /* font-family: 'Open Sans', sans-serif; */
 
+:root {
+    --hauteur-footer: 438px;
+    /*
+    navbar: 66px + header: 282px + footer: 90px
+    */
+}
+
 html,
 body {
-    /*width: 100%;
-    height: 100%;*/
+    /*width: 100%;*/
+    height: 100%;
     font-family: 'Roboto', sans-serif;
+}
+
+.single-activites main {
+    min-height: calc(100% - var(--hauteur-footer, 438px));
 }
 
 
