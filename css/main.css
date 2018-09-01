@@ -5,7 +5,7 @@
 /* font-family: 'Open Sans', sans-serif; */
 
 :root {
-    --hauteur-footer: 438px;
+    --hauteur-elements: 438px;
     /*
     navbar: 66px + header: 282px + footer: 90px
     */
@@ -19,7 +19,7 @@ body {
 }
 
 .single-activites main {
-    min-height: calc(100% - var(--hauteur-footer, 438px));
+    min-height: calc(100% - var(--hauteur-elements, 438px));
 }
 
 
