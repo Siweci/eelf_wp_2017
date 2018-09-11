@@ -140,7 +140,7 @@ if( function_exists('acf_add_options_page') ) {
 
 
 /**********************************************************************/
-/*                      POSTs AND CUSTOM POSTS                        */
+/*                      POSTS AND CUSTOM POSTS                        */
 /**********************************************************************/
 
 
@@ -152,9 +152,15 @@ function mwc_title_placeholder( $title ) {
     $post_type = $screen->post_type;
     
     switch ($post_type) {
+        
         case 'benevole':
 
             $title = "Saisissez le prénom et le nom du bénévole";
+            break;
+        
+        case 'predication':
+            
+            $title = "Saisissez le titre de la prédication";
             break;
 
         default:
