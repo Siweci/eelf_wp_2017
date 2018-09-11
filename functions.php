@@ -187,13 +187,21 @@ add_action( 'wp_enqueue_scripts', 'custom_styles' );
 function mwc_menus() {
 
 	$locations = array(
-		'header-menu' => __( 'Header Menu', 'smoothBlue' )
+		'header-menu' => __( 'Header Menu', 'smoothBlue' ),
+                'footer-menu' => __( 'Footer Menu', 'smoothBlue' )
 	);
 	register_nav_menus( $locations );
 
 }
 add_action( 'init', 'mwc_menus' );
 
+
+/* LOCALISATION */
+
+function add_localization() {
+    load_theme_textdomain( 'smoothblue', get_template_directory() . '/lang' );
+}
+add_action( 'after_setup_theme', 'add_localization' );
 
 /* POLYLANG */
 
