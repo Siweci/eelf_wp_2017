@@ -29,11 +29,17 @@ $date_end_month = $date_ed->format('m');
 $date_end_day = $date_ed->format('d');
 
 if ($date_ed == $date_st) {
+    
     $date_range = "le " . $dates['start'];
+    
 } else if ($date_end_year == $date_start_year && $date_end_month == $date_start_month) {
+    
     $date_range = "du " . $date_start_day . " au " . $dates['end'];
+    
 } else {
+    
     $date_range = "du " . $dates['start'] . " au " . $dates['end'];
+    
 }
 
 
@@ -155,6 +161,7 @@ if ($date_ed == $date_st) {
         
     </section><!-- #basic-infos -->
     
+    
     <section id="savoir-plus">
         
         <div class="container-fluid">
@@ -209,7 +216,8 @@ if ($date_ed == $date_st) {
             
         </div>
         
-    </section>
+    </section><!-- #savoir-plus -->
+    
     
     <?php get_template_part( 'parts/main-event-tarifs' ); ?>
     
