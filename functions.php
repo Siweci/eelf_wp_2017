@@ -94,6 +94,7 @@ if ( function_exists( 'add_image_size' ) ) {
 	 add_image_size( 'galerie-activite', 358, 239, true );
          add_image_size( 'galerie-main-event', 496, 372, true );
          add_image_size( 'benevole-miniature', 80, 80, true);
+         add_image_size( 'header-half', 1440, 500, true);
 }
 
 

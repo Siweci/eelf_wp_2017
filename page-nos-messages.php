@@ -1,27 +1,8 @@
 <?php get_header(); ?>
 
-<div id="<?php echo $post->post_name; ?>">
+<div id="<?php echo $post->post_name; ?>">    
     
-    
-    <header id="main-header" class="header">
-
-        <img src="images/woman-headphone.jpg">
-
-        <div id="slogan">
-
-            <div class="table">
-
-                <div class="text-vertical-center">
-
-                    <h1 class="text-uppercase">Nos Messages</h1>
-
-                </div>
-
-            </div><!-- .table -->
-
-        </div><!-- #slogan -->
-
-    </header>
+    <?php get_template_part( "parts/header-image-half" ); ?>
 
     <div class="container">
 
