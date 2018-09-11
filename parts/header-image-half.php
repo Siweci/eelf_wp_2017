@@ -7,8 +7,8 @@
         <div class="table">
 
             <div class="text-vertical-center">
-
-                <h1 class="text-uppercase">Nos Messages</h1>
+                
+                <h1 class="text-uppercase"><?php echo $post->post_title; ?></h1>
 
             </div>
 
