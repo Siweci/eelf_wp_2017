@@ -1,15 +1,25 @@
-
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:300,400|Roboto:100,300,400,500');
 
 /* font-family: 'Roboto', sans-serif; */
 /* font-family: 'Lato', sans-serif; */
 /* font-family: 'Open Sans', sans-serif; */
 
+:root {
+    --hauteur-elements: 438px;
+    /*
+    navbar: 66px + header: 282px + footer: 90px
+    */
+}
+
 html,
 body {
-    /*width: 100%;
-    height: 100%;*/
+    /*width: 100%;*/
+    height: 100%;
     font-family: 'Roboto', sans-serif;
+}
+
+.single-activites main {
+    min-height: calc(100% - var(--hauteur-elements, 438px));
 }
 
 
@@ -18,6 +28,12 @@ body {
     width: 100%;
     height: 100%;
 }
+
+thead.dark {
+    background: #7e8e9d;
+    color: #fff;
+}
+
 
 .text-vertical-center {
     display: table-cell;
@@ -953,7 +969,7 @@ footer a {
 }
 
 
-/* INFOS OU MINISTERE
+/* INFOS OU MINISTERE OU ACTIVITES
 -----------------------------------------------------------------*/
 
 #nos-activites img.media-object {
@@ -965,8 +981,22 @@ footer a {
     font-size: 30px;
 }
 
+
+#nos-activites a:hover {
+    text-decoration: none;
+}
+
+#nos-activites a:hover .panel {
+    background: #f8f8ff;
+}
+
+
 #nos-activites .panel-heading {
     padding: 0;
+}
+
+#nos-activites .panel-heading img {
+    width: 100%;
 }
 
 #nos-activites .panel-heading img ~  h3 {
@@ -981,6 +1011,11 @@ footer a {
     color: #000;
     letter-spacing: 0;
     line-height: 28px;
+}
+
+#nos-activites .panel-body {
+    height: 115px;
+    overflow: hidden;
 }
 
 #nos-activites .panel-body p {
@@ -1001,6 +1036,34 @@ footer a {
 
 
 
+.single-activites {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 23px;
+    color: #000;
+    letter-spacing: 0;
+    line-height: 28px;
+}
+
+.single-activites main {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.single-activites td p {
+    text-align: left !important;
+}
+
+.single-activites .content h1 {
+    margin-bottom: 30px;
+}
+
+.single-activites .content > table,
+.single-activites .content .table-responsive {
+    margin-top: 20px;
+}
+
+
 /* PAGE-NO-HEADER
 -----------------------------------------------------------------*/
 
@@ -1016,10 +1079,301 @@ footer a {
     text-align: justify;
 }
 
+/* MAIN EVENTS -- EVENEMENTS PRINCIPAUX
+-----------------------------------------------------------------*/
+
+.page-template-main-event {
+    font-family: 'Roboto', sans-serif;
+    color: #7e8e9d;
+    line-height: 27px;
+}
+
+
+/* COMMONS */
+
+.page-template-main-event h1,
+.page-template-main-event #theme {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 40px;
+    color: #000;
+    letter-spacing: 0;
+}
+
+.page-template-main-event #theme {
+    line-height: 30px;
+    font-size: 25px;
+}
+
+.page-template-main-event h2 {
+    margin-bottom: 37px;
+    font-size: 30px;
+    color: #212937;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 27px;
+}
+
+.page-template-main-event .background-icone {
+    background: #d7d7d7;
+    width: 80px;
+    height: 80px;
+    line-height: 68px;
+}
+
+.page-template-main-event .role {
+    font-size: 18px;
+    color: #4a90e2;
+    font-style: italic;
+    line-height: 27px;
+}
+
+.page-template-main-event .background-icone i {
+    font-size: 50px;
+    vertical-align: middle;
+}
+
+.page-template-main-event .main-section {
+        padding: 20px 0;
+    }
+
+
+/* BASIC INFOS */
+
+.page-template-main-event #basic-infos {
+    margin-top: 89px;
+/*    padding-top: 66px;
+    padding-bottom: 66px;*/
+}
+
+.page-template-main-event .date {
+    font-size: 19px;
+    color: #7e8e9d;
+    line-height: 27px;
+}
+
+.page-template-main-event #description {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: #7e8e9d;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 27px;
+}
+
+.page-template-main-event #description strong {
+    font-weight: 500;
+}
+
+.page-template-main-event #organisateur {
+    margin-top: 30px;
+}
+
+.page-template-main-event .media-object {
+    background: #d7d7d7;
+    width: 70px;
+    height: 70px;
+    line-height: 64px;
+}
+
+.page-template-main-event .media-object i {
+    font-size: 50px;
+    vertical-align: middle;
+}
+
+
+.page-template-main-event .media-body h4 {
+    font-size: 18px;
+    line-height: 27px;
+}
+
+#basic-infos main {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+/*.page-template-main-event .media-body .role {
+    font-size: 18px;
+    color: #4a90e2;
+    font-style: italic;
+    line-height: 27px;
+}*/
+
+
+.page-template-main-event h3 {
+    margin-bottom: 37px;
+    font-size: 30px;
+    color: #212937;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 27px;
+}
+
+.page-template-main-event .inscription a {
+    margin-top: 10px;
+    font-size: 17px;
+}
+
+
+/* EN SAVOIR PLUS */
+
+.page-template-main-event #savoir-plus {
+    padding-top: 15px;
+    padding-bottom: 0;
+}
+
+.page-template-main-event #savoir-plus .panel-group .panel-body {
+    border-top: 0;
+}
+
+.page-template-main-event #savoir-plus .panel-title a {
+    font-size: 22px;
+    color: #212937;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+.page-template-main-event .panel-title .icone {
+    display: block;
+    color: rgba(0, 128, 255, 0.23);
+}
+
+.page-template-main-event #infos-complementaires {
+    font-size: 16px;
+    color: #7e8e9d;
+    font-weight: 300;
+}
+
+.page-template-main-event #infos-complementaires h1 {
+    margin-bottom: 5px;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.page-template-main-event #infos-complementaires h2 {
+    margin-bottom: 0px;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.page-template-main-event #infos-complementaires p {
+    margin-bottom: 0;
+}
+
+.page-template-main-event #infos-complementaires p.remarque {
+    margin-top: 20px;
+    font-weight: 400;
+}
+
+
+
+/* TARIFS */
+
+.page-template-main-event #tarifs {
+/*    padding-top: 66px;
+    padding-bottom: 66px;*/
+}
+
+/*.page-template-main-event #tarifs h3 {
+    margin-bottom: 37px;
+    font-size: 30px;
+    color: #212937;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 27px;
+}*/
+
+.page-template-main-event #tarifs .content {
+    font-size: 18px;
+    color: #7e8e9d;
+    letter-spacing: 0;
+    line-height: 27px;
+}
+
+.page-template-main-event #tarifs .tablepress thead th {
+    background: #7e8e9d;
+    text-align: center;
+    border-bottom: 0;
+    color: #fff;
+    font-weight: 400;
+}
+
+.page-template-main-event .inscription-en-ligne {
+    /* S’inscrire ici: */
+    font-family: Roboto;
+    font-size: 15px;
+    letter-spacing: 1.2px;
+    line-height: 27px;
+}
+
+.page-template-main-event #tarifs #meta-tarifs {
+    margin-bottom: 20px;
+}
+
+.page-template-main-event #tarifs #meta-tarifs p {
+    margin: 0;
+    line-height: 20px;
+}
+
+
+
+
+/* GALERIE PHOTOS */
+
+.page-template-main-event #galerie-photos {
+/*    padding-top: 66px;
+    padding-bottom: 66px;*/
+}
+
+
+.page-template-main-event #galerie-photos img {
+    margin-bottom: 30px;
+}
+
+
+
+/* PERSONNES A CONTACTER */
+
+.page-template-main-event #personnes-contact {
+/*    padding-top: 66px;
+    padding-bottom: 66px;*/
+}
+
+.page-template-main-event .thumbnail {
+    padding-top: 20px;
+}
+
+.page-template-main-event #personnes-contact h4 {
+    font-size: 18px;
+    color: #7e8e9d;
+    letter-spacing: 0;
+    line-height: 27px;
+}
+
+.page-template-main-event #personnes-contact .btn {
+    padding: 6px 4px;
+}
+
+
+
+/* ADRESSE ET CARTE */
+
+.page-template-main-event #event-map {
+/*    padding: 66px 0;*/
+    color: #7e8e9e;
+}
+
+.page-template-main-event #event-map #adresse {
+    font-size: 20px;
+}
+
+
 
 
 /* MEDIA QUERIES
------------------------------------------------------------------*/
+------------------------------------------------------------------
+------------------------------------------------------------------*/
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
@@ -1234,6 +1588,32 @@ footer a {
     /* Ou #services .panel */
     #nos-activites .panel {
         margin-bottom: 40px;
+    }
+    
+    
+    /* MAIN EVENTS -- EVENEMENTS PRINCIPAUX */
+    
+    .page-template-main-event .main-section {
+        padding: 66px 0;
+    }
+    
+    #basic-infos main {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    
+    .page-template-main-event .content.flex {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .page-template-main-event #personnes-contact .meta-role {
+        height: 40px;
+    }
+    
+    .page-template-main-event #personnes-contact .network {
+        height: 42px;
     }
 }
 

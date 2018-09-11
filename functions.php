@@ -30,6 +30,7 @@ function mwc_namespace_autoload( $class_name ) {
 function mwc_dump($datas) {
     
     $datas_type = gettype($datas);
+    
     echo "<pre>";
         echo $datas_type . "<br/>";
         
@@ -91,6 +92,8 @@ add_action( 'after_setup_theme', 'custom_theme_features' );
 
 if ( function_exists( 'add_image_size' ) ) { 
 	 add_image_size( 'galerie-activite', 358, 239, true );
+         add_image_size( 'galerie-main-event', 496, 372, true );
+         add_image_size( 'benevole-miniature', 80, 80, true);
 }
 
 
@@ -149,6 +152,7 @@ add_action('wp_enqueue_scripts', 'my_scripts');
 
 
 // Register Style
+
 function custom_styles() {
 
     wp_register_style( 'bootstrap-min', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css', false, false, 'all' );
@@ -168,8 +172,8 @@ function custom_styles() {
     wp_register_style( 'custom', get_stylesheet_directory_uri() .'/css/custom.css', false, false, 'all' );
     wp_enqueue_style( 'custom' );
     
-    wp_register_style( 'buttons', get_stylesheet_directory_uri() .'/css/buttons.css', false, false, 'all' );
-    wp_enqueue_style( 'buttons' );
+    wp_register_style( 'my-buttons', get_stylesheet_directory_uri() .'/css/buttons.css', false, false, 'all' );
+    wp_enqueue_style( 'my-buttons' );
     
     wp_register_style( 'main', get_stylesheet_directory_uri() .'/css/main.css', false, false, 'all' );
     wp_enqueue_style( 'main' );
@@ -183,13 +187,21 @@ add_action( 'wp_enqueue_scripts', 'custom_styles' );
 function mwc_menus() {
 
 	$locations = array(
-		'header-menu' => __( 'Header Menu', 'smoothBlue' )
+		'header-menu' => __( 'Header Menu', 'smoothBlue' ),
+                'footer-menu' => __( 'Footer Menu', 'smoothBlue' )
 	);
 	register_nav_menus( $locations );
 
 }
 add_action( 'init', 'mwc_menus' );
 
+
+/* LOCALISATION */
+
+function add_localization() {
+    load_theme_textdomain( 'smoothblue', get_template_directory() . '/lang' );
+}
+add_action( 'after_setup_theme', 'add_localization' );
 
 /* POLYLANG */
 
@@ -207,6 +219,26 @@ function mwc_e($string) {
     } else {
         _e($string, "smoothblue");
     }
+}
+
+
+/* GOOGLE FUNCTIONS */
+
+function mwc_get_google_photo_id($url) {
+    
+    /*
+     * 
+     * @param string url l'url de la photo google
+     *      au moins en mode preview
+     * @return string id le id de la photo pour qu'il soit exploité dans
+     *      <img src"..." />
+     */
+    
+    $re = '/file\/d?\/(\w*)/m';
+
+    preg_match_all($re, $url, $matches, PREG_SET_ORDER, 0);
+    
+    return $matches[0][1];
 }
 
 

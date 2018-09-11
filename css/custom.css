@@ -1,4 +1,3 @@
-
 .form-control.only-bottom {
     border-left: 0;
     border-top: 0;
@@ -61,6 +60,7 @@
 
 .panel-no-border {
     background-color: transparent;
+    box-shadow: none;
 }
 
 .panel-no-border-in .panel-heading {

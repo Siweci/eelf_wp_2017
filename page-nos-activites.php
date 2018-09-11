@@ -23,12 +23,28 @@ $activites = new WP_Query( $args );
             <div class="row">
 
                 <?php if( $activites->have_posts() ) : while ( $activites->have_posts() ) : $activites->the_post(); ?>
-
-                    <article id="culte-dimanche" class="col-xs-12 col-md-4 text-center">
+                    
+                    <?php
+                    if( !is_empty_content() ) {
+                        
+                        $permalink = get_permalink();
+                        $link_start = sprintf('<a href="%1$s" class="to-activity">', $permalink);
+                        $link_end = '</a>';
+                        
+                    } else {
+                        
+                        $link_start = '';
+                        $link_end = '';
+                    }
+                    ?>
+                    
+                    <article id="<?php echo $post->post_name; ?>" class="col-xs-12 col-md-4 text-center">
+                        
+                        <?php echo $link_start; ?>
 
                         <div class="panel panel-default panel-no-bg panel-no-border-in">
 
-                            <div class="panel-heading text-center">
+                            <div class="panel-heading">
 
                                 <?php the_post_thumbnail(
                                             'galerie-activites',
@@ -38,8 +54,8 @@ $activites = new WP_Query( $args );
 
                             </div>
 
-                            <div class="panel-body">
-                               <?php the_content(); ?>
+                            <div class="panel-body text-justify">
+                               <?php the_excerpt(); ?>
                             </div>
 
                             <div class="panel-footer">
@@ -71,6 +87,8 @@ $activites = new WP_Query( $args );
                             </div>
 
                         </div>
+                            
+                        <?php echo $link_end; ?>
 
                     </article>
 

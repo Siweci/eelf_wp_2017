@@ -10,7 +10,7 @@
         <!-- NEXT EVENT -->
         
             <?php $next_sunday = mwc_get_next_sunday(); ?>
-        
+            
             <?php
             $args = array(
                 'category_name' => 'evenement',
