@@ -1429,7 +1429,12 @@ footer a {
 
 #messages article .tags {
     margin-top: 8px;
-    font-size: 22px;
+    font-size: 20px;
+}
+
+
+#messages .tags span ~ span {
+    margin-left: 5px;
 }
 
 #messages .icone {

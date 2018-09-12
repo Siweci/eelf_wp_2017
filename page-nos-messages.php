@@ -1,5 +1,19 @@
 <?php get_header(); ?>
 
+<?php
+$args = array(
+    'post_type' => 'predication'
+    
+);
+$predications = new WP_Query( $args );
+
+//function add_slash($item) {
+//    
+//    return '#' . $item->name;
+//}
+?>
+
+
 <div id="<?php echo $post->post_name; ?>">    
     
     <?php get_template_part( "parts/header-image-half" ); ?>
@@ -14,73 +28,67 @@
 
                     <h2 class="col-xs-12 text-center">Les derniers messages</h2>
                     
-                    <article class="col-xs-12">
+                    <?php if ( $predications->have_posts() ): while ( $predications->have_posts() ): $predications->the_post(); ?>
                         
-                        <div class="row">
-                            
-                            <a href="#" class="icone col-xs-12 col-md-3">
-                                <div class="icone-table center-block-xs">
-                                    <div class="icone-cell">
-                                        <i class="fa fa-microphone fa-5x" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-                            </a>
-                            
-                            <div class="text col-xs-12 col-md-9">
-                                <h4 class="">Le tabernacle</h4>
-                                <p class="description-message">
-                                    Quelles leçons de la construction du Tabernacle pouvont nous appliquer à notre vie pour que nous soyons heureux.
-                                </p>
-                                <p class="predicateur">Pasteur Philippe Evan</p>
-                                <p class="tags">
-                                    <span>#SerieExode</span>
-                                    <span>#Edification</span>
-                                </p>
-                            </div>
-                            
-                        </div>
-                        
-                    </article>
+                        <?php $predication = new mwc_front_Predication( get_the_ID() ); ?>
                     
-                    <article class="col-xs-12">
-                        
-                        <div class="row">
-                            
-                            <div class="icone col-xs-12 col-md-3">
-                                <div class="icone-table center-block-xs">
-                                    <div class="icone-cell">
-                                        <i class="fa fa-microphone fa-5x" aria-hidden="true"></i>
+                        <article class="col-xs-12">
+
+                            <div class="row">
+                                <?php
+                                if ( get_field( 'lien_externe') ) {
+                                    $lien_message = get_field( 'lien_externe');
+                                } else {
+                                    $lien_message = '#';
+                                }
+                                ?>
+                                <a href="<?php echo $lien_message; ?>" target="_blank"
+                                   class="icone col-xs-12 col-md-3">
+                                    <div class="icone-table center-block-xs">
+                                        <div class="icone-cell">
+                                            <i class="fa fa-microphone fa-5x" aria-hidden="true"></i>
+                                        </div>
                                     </div>
+                                </a>
+
+                                <div class="text col-xs-12 col-md-9">
+                                    <h4 class=""><?php the_title(); ?></h4>
+                                    <p class="description-message">
+                                        <?php the_content(); ?>
+                                    </p>
+                                    <p class="predicateur">
+                                        <?php the_field( 'nom_predicateur' ); ?>
+                                    </p>
+
+                                    <?php
+                                    $tags = $predication->get_tags();
+                                    ?>
+                                    <p class="tags">
+                                        <?php
+                                        foreach ($tags as $tag) {
+                                            printf('<span>%1$s</span>', $tag);
+                                        }
+                                        ?>
+                                    </p>
                                 </div>
+
                             </div>
-                            
-                            <div class="text col-xs-12 col-md-9">
-                                <h4 class="">Stratégie d'évangélisation et conduite du Saint Esprit</h4>
-                                <p class="description-message">
-                                    
-                                </p>
-                                <p class="texte-biblique">Actes 13.13-52</p>
-                                <p class="predicateur">Pasteur Philippe Evan</p>
-                                <p class="tags">
-                                    <span>#Stratégie</span>
-                                    <span>#Evangélisation</span>
-                                    <span>#Destiné</span>
-                                    <span>#ResponsablitéPersonnelle</span>
-                                    <span>#Evangile</span>
-                                </p>
-                            </div>
-                            
-                        </div>
-                        
-                    </article>
+
+                        </article>
+                    
+                    <?php endwhile; endif; ?>
 
                 </div>
 
             </section>
             
-            <div class="col-xs-12 col-md-4 col-md-offset-4 text-center">
-                <button id="get-archives" class="get-archives btn btn-outline btn-lg btn-no-radius">Nos archives</button>
-            </div>
+            <?php if( $predications->post_count > 1): ?>
+            
+                <div class="col-xs-12 col-md-4 col-md-offset-4 text-center">
+                    <button id="get-archives" class="get-archives btn btn-outline btn-lg btn-no-radius">Nos archives</button>
+                </div>
+            
+            <?php endif; ?>
 
         </div>
 
