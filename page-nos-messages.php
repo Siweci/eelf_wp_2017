@@ -2,15 +2,13 @@
 
 <?php
 $args = array(
-    'post_type' => 'predication'
+    'post_type' => 'predication',
+    'meta_key'	=> 'date',
+    'orderby'	=> 'meta_value_num',
+    'order'	=> 'DESC'
     
 );
 $predications = new WP_Query( $args );
-
-//function add_slash($item) {
-//    
-//    return '#' . $item->name;
-//}
 ?>
 
 
