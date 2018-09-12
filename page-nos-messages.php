@@ -31,25 +31,21 @@ $predications = new WP_Query( $args );
                     <?php if ( $predications->have_posts() ): while ( $predications->have_posts() ): $predications->the_post(); ?>
                         
                         <?php $predication = new mwc_front_Predication( get_the_ID() ); ?>
+                        
                     
                         <article class="col-xs-12">
 
                             <div class="row">
-                                <?php
-                                if ( get_field( 'lien_externe') ) {
-                                    $lien_message = get_field( 'lien_externe');
-                                } else {
-                                    $lien_message = '#';
-                                }
-                                ?>
-                                <a href="<?php echo $lien_message; ?>" target="_blank"
-                                   class="icone col-xs-12 col-md-3">
+                                
+                                <?php $predication->print_main_icone_wrapper_open(); ?>
+                                
                                     <div class="icone-table center-block-xs">
                                         <div class="icone-cell">
                                             <i class="fa fa-microphone fa-5x" aria-hidden="true"></i>
                                         </div>
                                     </div>
-                                </a>
+                                
+                                <?php $predication->print_main_icone_wrapper_close();?>
 
                                 <div class="text col-xs-12 col-md-9">
                                     <h4 class=""><?php the_title(); ?></h4>
@@ -84,9 +80,9 @@ $predications = new WP_Query( $args );
             
             <?php if( $predications->post_count > 1): ?>
             
-                <div class="col-xs-12 col-md-4 col-md-offset-4 text-center">
+<!--                <div class="col-xs-12 col-md-4 col-md-offset-4 text-center">
                     <button id="get-archives" class="get-archives btn btn-outline btn-lg btn-no-radius">Nos archives</button>
-                </div>
+                </div>-->
             
             <?php endif; ?>
 

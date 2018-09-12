@@ -1441,7 +1441,7 @@ footer a {
     color: #000;
 }
 
-#messages .icone:hover {
+#messages a.icone:hover {
     color: #23527c;;
 }
 
