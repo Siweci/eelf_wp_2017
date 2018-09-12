@@ -1,6 +1,6 @@
 <header id="main-header" class="header">
 
-    <?php the_post_thumbnail(); ?>
+    <?php the_post_thumbnail( 'header-half'); ?>
 
     <div id="slogan">
 
