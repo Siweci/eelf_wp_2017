@@ -51,7 +51,6 @@ class mwc_front_Predication {
             
         }
         
-        
     }
     
     
