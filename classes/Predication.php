@@ -41,7 +41,17 @@ class mwc_front_Predication {
         
         $predication_tags = get_the_terms( $this->ID, 'tag_predication');
         
-        return array_map(array($this, 'add_hashtag'), $predication_tags);
+        if ($predication_tags) {
+            
+            return array_map(array($this, 'add_hashtag'), $predication_tags);
+            
+        } else {
+            
+            return array();
+            
+        }
+        
+        
     }
     
     
