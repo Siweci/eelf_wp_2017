@@ -1480,6 +1480,19 @@ button.get-archives {
 }
 
 
+/* EVENEMENT SPECIAL
+-----------------------------------------------------------------*/
+
+h2.tablepress-table-name {
+    font-family: 'Roboto', sans-serif;
+    font-size: 44px;
+    font-weight: 100;
+    color: #000;
+    letter-spacing: 0;
+    margin-bottom: 10px !important;
+}
+
+
 
 
 /* MEDIA QUERIES

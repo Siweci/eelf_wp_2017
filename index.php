@@ -81,8 +81,8 @@
             <?php wp_reset_query(); ?>
 
         <!-- SPECIAL EVENT -->
-
-        <?php // include 'parts/special-event.php'; ?>
+        
+        <?php get_template_part( "parts/special-event" ) ?>
 
 
 

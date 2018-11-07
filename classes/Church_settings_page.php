@@ -184,6 +184,27 @@ class mwc_front_Church_settings_page {
             'church-admin', 
             'times_section_id'
         );
+        
+        
+        /*
+         * Les éléments techniques
+         *************************************************************/
+        
+        add_settings_section(
+            'infos_techniques_id',
+            'Infos techniques',
+            array(),
+            'church-admin'
+        );
+        
+        
+        add_settings_field(
+            'google_map_url', 
+            'URL de la carte Google', 
+            array( $this, 'google_map_url_callback' ), 
+            'church-admin', 
+            'infos_techniques_id'
+        );
     }
     
     
@@ -334,5 +355,18 @@ class mwc_front_Church_settings_page {
                 . '</p>' );
         
         print( '<p class="dimanche-infos">au format hh:mm, séparés par un tiret "-"</p>' );
+    }
+    
+    
+    public function google_map_url_callback() {
+        
+        printf(
+            '<input type="text" id="google_map_url" class="full-text"'
+                . 'name="church_contact_infos[google_map_url]"'
+                . 'aria-describedby="google_map_url-description"'
+                . 'value="%s" />',
+            isset( $this->options['google_map_url'] ) ? esc_attr( $this->options['google_map_url']) : ''
+        );
+        
     }
 }
