@@ -22,7 +22,10 @@ $evenements_speciaux = new WP_Query( $args );
             
             
             <?php
-            $end_name = (empty ( get_field ( 'tableau') ) ) ? 'single' : 'table';
+            $tableau = get_field ( 'tableau' );
+            
+            $end_name = (empty ( $tableau ) ) ? 'single' : 'table';
+            
             get_template_part ( 'parts/special-event-image', $end_name );
             ?>
 
