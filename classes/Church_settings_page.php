@@ -21,6 +21,9 @@ class mwc_front_Church_settings_page {
     }
     
     
+    
+    // link to css file
+    
     function add_custom_admin_css( $hook ) {
         
         if ( $hook != 'settings_page_church-admin' ) {
@@ -31,6 +34,7 @@ class mwc_front_Church_settings_page {
                 'admin-styles',
                 get_template_directory_uri().'/css/church-admin.css');
     }
+    
     
     /**
      * Add options page
