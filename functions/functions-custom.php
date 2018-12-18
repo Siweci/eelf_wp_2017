@@ -30,7 +30,7 @@ function mwc_custom_logo() {
             echo '<img src="'. esc_url( $logo[0] ) .'">';
     } else {
 //            echo '<img src="' . get_stylesheet_directory_uri() . '/img/logo_eelf.svg">';
-            echo get_bloginfo( 'description' );
+            echo get_bloginfo( 'title' );
     }
 }
 
