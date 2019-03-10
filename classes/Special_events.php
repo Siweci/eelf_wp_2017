@@ -64,12 +64,74 @@ class mwc_front_Special_events  extends WP_Query {
     }
     
     
+    public function wrapper_class() {
+        
+        $class = 'col-xs-12 ';
+        
+        switch ($this->count) {
+            
+            case 1:
+
+                
+                break;
+            
+            case 2:
+                
+                $class .= 'col-md-8 col-md-offset-2';
+                break;
+            
+            case 3:
+                
+                $class .= 'col-md-10 col-md-offset-1';
+
+            default:
+                break;
+        }
+        
+        printf("class='%s'", $class);
+        
+    }
+    
+    
     public function main_class() {
-//        global $post;
         
-//        return 'col-md-' . 12 / $this->count;
+        echo post_class( 'special-event col-xs-12 ' .  'col-md-' . 12 / $this->count );
         
-        return post_class( 'special-event col-xs-12 ' .  'col-md-' . 12 / $this->count );
+    }
+    
+    
+    
+    public function single_image_class() {
+        
+        $class = 'single-image col-xs-12 ';
+        
+        if( $this->count <= 2 ) {
+            
+            $class .= 'col-md-10 col-md-offset-1';
+            
+        } else {
+            
+            $class .= 'col-md-10 col-md-offset-1';
+            
+        }
+        
+        printf("class='%s'", $class);
+    }
+    
+    
+    public function get_end_name() {
+        
+        if ( $this->count == 1 ) {
+            
+            $tableau = get_field ( 'tableau' );
+
+            return (empty ( $tableau ) ) ? 'single' : 'table';
+            
+        } else {
+            
+            return 'multi';
+        }
+        
     }
     
 }
