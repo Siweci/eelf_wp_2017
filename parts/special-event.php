@@ -46,7 +46,7 @@ $evenements_speciaux = new WP_Query( $args );
         
         <h2 class="black col-md-8 col-md-offset-2 text-center">Evénements exceptionnels</h2>
         
-        <div class="special-event-wrapper col-xs-12 col-md-8 col-md-offset-2">
+        <div id="special-event-wrapper" class=" col-xs-12 col-md-8 col-md-offset-2">
             
             <div class="row">
     
