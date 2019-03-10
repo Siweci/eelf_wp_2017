@@ -1,5 +1,7 @@
 <?php
 
+
+
 $args = array(
     'category_name' => 'evenements-speciaux',
     'meta_key' => 'date_debut',
@@ -8,11 +10,20 @@ $args = array(
 //    'posts_per_page' => 1
 );
 
-$evenements_speciaux = new WP_Query( $args );
+$evenements_speciaux = new mwc_front_Special_events($args);
+
+//mwc_dump($evenements_speciaux);
+
+//$evenements_speciaux = new WP_Query( $args );
 
 ?>
 
 <?php if( $evenements_speciaux->have_posts() ) : ?>
+
+    <h2 class="black col-md-8 col-md-offset-2 text-center">
+        <?php $evenements_speciaux->display_title(); ?>
+    </h2>
+
     
     <?php if( $evenements_speciaux->post_count == 1): ?>
 
