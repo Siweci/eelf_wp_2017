@@ -701,23 +701,23 @@ footer a {
 /* SPECIAL EVENT
 -----------------------------------------------------------------*/
 
-#special-event {
+.special-event {
     padding-top: 60px;
     padding-bottom: 80px;
 }
 
-#special-event h2 {
+.special-event h2 {
     margin-top: 0;
     margin-bottom: 60px;
     line-height: 48px;
 }
 
-#special-event h3 {
+.special-event h3 {
     margin-top: 40px;
 }
 
-#special-event p,
-#special-event td {
+.special-event p,
+.special-event td {
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     color: #8594a8;
@@ -725,7 +725,7 @@ footer a {
     line-height: 29px;
 }
 
-#special-event table {
+.special-event table {
     margin-top: 40px;
 }
 
