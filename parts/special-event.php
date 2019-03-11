@@ -2,9 +2,9 @@
 
 $args = array(
     'category_name' => 'evenements-speciaux',
-//    'meta_key' => 'date_debut',
-//    'orderby' => 'meta_value',
-//    'order' => 'DESC',
+    'meta_key' => 'date_debut',
+    'orderby' => 'meta_value',
+    'order' => 'DESC',
     'posts_per_page' => 3,
     'paged' => 1
 );

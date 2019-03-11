@@ -141,11 +141,18 @@ class mwc_front_Special_events  extends WP_Query {
         
         if ( $this->found_posts > $this->count ) {
             
+            // recherche des informations de cette categorie
+            $categories = get_the_category();
+            $current_category = $categories[0];
+            $current_category_id = $current_category->cat_ID;
+            
+            // recherche l'URL de cette catégorie
+            $current_category_link = get_category_link( $current_category_id );
         ?>
             
             <div class="col-xs-12 col-md-4 col-md-offset-4">
 
-                <a href="<?php echo the_permalink(); ?>"
+                <a href="<?php echo esc_url( $current_category_link ); ?>"
                    class="to-archive btn btn-lg btn-block btn-black btn-outline">Voir plus d'événements</a>
 
             </div>
@@ -153,6 +160,7 @@ class mwc_front_Special_events  extends WP_Query {
         <?php
         
         }
+        
     }
     
 }
