@@ -8,9 +8,9 @@
 
 class mwc_front_Special_events  extends WP_Query {
     
-    public $events;
+    public $events; // unused
     
-    private $count_argument = 'post_count';
+    private $count_argument = 'post_count'; // deprecated
     
     public $count;
     
@@ -20,7 +20,7 @@ class mwc_front_Special_events  extends WP_Query {
         
         parent::__construct($args);
         
-        $this->count  = $this->{$this->count_argument};
+        $this->count  = $this->post_count;
         
         wp_reset_query();
     }
@@ -132,6 +132,27 @@ class mwc_front_Special_events  extends WP_Query {
             return 'multi';
         }
         
+    }
+    
+    /**
+     * Affiche un bouton si il y a plus de 3 posts (événements spéciaux)
+     */
+    public function display_to_archive_button() {
+        
+        if ( $this->found_posts > $this->count ) {
+            
+        ?>
+            
+            <div class="col-xs-12 col-md-4 col-md-offset-4">
+
+                <a href="<?php echo the_permalink(); ?>"
+                   class="to-archive btn btn-lg btn-block btn-black btn-outline">Voir plus d'événements</a>
+
+            </div>
+            
+        <?php
+        
+        }
     }
     
 }

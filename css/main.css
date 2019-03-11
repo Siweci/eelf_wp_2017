@@ -698,12 +698,17 @@ footer a {
 }
 
 
-/* SPECIAL EVENT
+/* SPECIAL EVENTS
 -----------------------------------------------------------------*/
+
+#special-events {
+    padding-top: 45px;
+    padding-bottom: 65px;
+}
 
 .special-event {
     padding-top: 60px;
-    padding-bottom: 80px;
+    padding-bottom: 50px;
 }
 
 .special-event h2 {
@@ -800,7 +805,8 @@ footer a {
 -----------------------------------------------------------------*/
 
 #services {
-    
+    padding-top: 55px;
+    padding-bottom: 35px;
 }
 
 #services .thumbnail {
@@ -1739,6 +1745,16 @@ h2.tablepress-table-name {
     .page-template-main-event #personnes-contact .network {
         height: 42px;
     }
+    
+    
+    
+    /* SPECIAL EVENTS */
+    
+    #services {
+        padding-top: 55px;
+        padding-bottom: 35px;
+    }
+    
     
     
     /* MESSAGES */

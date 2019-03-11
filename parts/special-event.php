@@ -2,18 +2,22 @@
 
 $args = array(
     'category_name' => 'evenements-speciaux',
-    'meta_key' => 'date_debut',
-    'orderby' => 'meta_value',
-    'order' => 'DESC',
-//    'posts_per_page' => 1
+//    'meta_key' => 'date_debut',
+//    'orderby' => 'meta_value',
+//    'order' => 'DESC',
+    'posts_per_page' => 3,
+    'paged' => 1
 );
-
 
 $events = new mwc_front_Special_events($args);
 
 ?>
 
 <?php if( $events->have_posts() ) : ?>
+
+<div id="special-events" class="col-xs-12">
+    
+    <div class="row">
 
     <h2 class="black col-md-8 col-md-offset-2 text-center">
         <?php $events->display_title(); ?>
@@ -40,9 +44,15 @@ $events = new mwc_front_Special_events($args);
                 </section>
 
             <?php endwhile; ?>
+            
+            <?php $events->display_to_archive_button(); ?>
 
         </div>
 
     </div>
+        
+    </div>
+    
+</div><!-- #special-events -->
 
 <?php endif;
