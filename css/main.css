@@ -707,8 +707,8 @@ footer a {
 }
 
 .special-event {
-    padding-top: 60px;
-    padding-bottom: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .special-event h2 {
@@ -740,8 +740,17 @@ footer a {
 }
 
 #special-event-page #google-map {
-        margin-bottom: 40px;
-    }
+    margin-bottom: 40px;
+}
+
+
+
+/* LA CATEGORIE SPECIAL EVENTS */
+
+#page-evenements-speciaux {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
 
 
 
@@ -1750,12 +1759,21 @@ h2.tablepress-table-name {
     
     /* SPECIAL EVENTS */
     
+    .special-event {
+        padding-top: 60px;
+        padding-bottom: 50px;
+    }
+    
+    
+    
+    /* SERVICES */
+    
     #services {
         padding-top: 55px;
         padding-bottom: 35px;
     }
     
-    
+     
     
     /* MESSAGES */
     
