@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ * Affiche la catégorie des événements spéciaux
  */
 
 get_header();

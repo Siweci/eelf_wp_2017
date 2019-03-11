@@ -31,17 +31,17 @@ $events = new mwc_front_Special_events($args);
 
             <section id="<?php echo "special-event-" . get_the_ID(); ?>" <?php $events->main_class(); ?>>
 
-                    <div class="row">
+                <div class="row">
 
-                        <?php
+                    <?php
 
-                        get_template_part ( 'parts/special-event-image', $events->get_end_name() );
+                    get_template_part ( 'parts/special-event-image', $events->get_end_name() );
 
-                        ?>
+                    ?>
 
-                    </div>
+                </div>
 
-                </section>
+            </section>
 
             <?php endwhile; ?>
             
