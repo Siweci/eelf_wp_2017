@@ -30,11 +30,11 @@ class mwc_front_Special_events  extends WP_Query {
         
         if( $this->count == 1) {
             
-            echo esc_html_e( 'Evénement ', 'smoothblue' );
+            esc_html_e( 'Evénement ', 'smoothblue' );
             
         } else {
             
-            echo esc_html_e( 'Evénements exceptionnels', 'smoothblue' );
+            esc_html_e( 'Evénements exceptionnels', 'smoothblue' );
             
         }
     }
