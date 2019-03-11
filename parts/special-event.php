@@ -9,6 +9,7 @@ $args = array(
     'paged' => 1
 );
 
+global $events;
 $events = new mwc_front_Special_events($args);
 
 ?>

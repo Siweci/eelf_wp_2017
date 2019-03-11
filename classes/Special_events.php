@@ -163,4 +163,16 @@ class mwc_front_Special_events  extends WP_Query {
         
     }
     
+    
+    /**
+     * Affiche un tag pour indiquer que l'événement a déjà eu lieu
+     */
+    public function display_time_tag() {
+        
+        if ( get_field('date_debut') < date("Y-m-d") ) {
+            echo '<div class="passed text-center">Cet événement a déjà eu lieu</div>';
+        }
+        
+    }
+    
 }

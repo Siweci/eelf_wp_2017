@@ -5,10 +5,19 @@
  */
 ?>
 
+<?php
+global $events;
+
+
+?>
+
+
 <div class="single-image col-xs-12 col-md-10 col-md-offset-1">
-
+<div class="single-image-wrapper">
     <?php the_post_thumbnail('', array('class' => 'img-responsive')); ?>
-
+    
+    <?php $events->display_time_tag(); ?>
+</div>
 </div>
 
 <div class="col-xs-12 col-md-4 col-md-offset-4 text-center">

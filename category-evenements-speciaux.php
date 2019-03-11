@@ -5,6 +5,19 @@
 
 get_header();
 
+
+$args = array(
+//    'category_name' => 'evenements-speciaux',
+    'meta_key' => 'date_debut',
+    'orderby' => 'meta_value',
+    'order' => 'DESC',
+//    'posts_per_page' => 3,
+//    'paged' => 1
+);
+
+global $events;
+$events = new mwc_front_Special_events($args);
+
 ?>
 
 <div id="page-evenements-speciaux" class="main">
@@ -17,7 +30,7 @@ get_header();
             
             <section class="col-xs-12 col-md-10 col-md-offset-1">
                 
-                <?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
+                <?php if( $events->have_posts() ) : while( $events->have_posts() ) : $events->the_post(); ?>
                 
                     <div id="<?php echo "special-event-" . get_the_ID(); ?>" <?php post_class( 'special-event col-xs-12 col-md-4'); ?>>
 

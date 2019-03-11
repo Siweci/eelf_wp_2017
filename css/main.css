@@ -69,6 +69,18 @@ thead.dark {
 }
 
 
+.passed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3em;
+    line-height: 3em;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
+
 h2 {
     font-family: 'Roboto', sans-serif;
     font-size: 44px;
@@ -743,6 +755,15 @@ footer a {
     margin-bottom: 40px;
 }
 
+h2.tablepress-table-name {
+    font-family: 'Roboto', sans-serif;
+    font-size: 44px;
+    font-weight: 100;
+    color: #000;
+    letter-spacing: 0;
+    margin-bottom: 10px !important;
+}
+
 
 
 /* LA CATEGORIE SPECIAL EVENTS */
@@ -750,6 +771,13 @@ footer a {
 #page-evenements-speciaux {
     padding-top: 40px;
     padding-bottom: 40px;
+}
+
+
+.single-image-wrapper {
+    position: relative;
+    font-size: 12px;
+    letter-spacing: 0.6px;
 }
 
 
@@ -1492,19 +1520,6 @@ button.get-archives {
 
 #messages ~ footer {
     margin-top: 15px;
-}
-
-
-/* EVENEMENT SPECIAL
------------------------------------------------------------------*/
-
-h2.tablepress-table-name {
-    font-family: 'Roboto', sans-serif;
-    font-size: 44px;
-    font-weight: 100;
-    color: #000;
-    letter-spacing: 0;
-    margin-bottom: 10px !important;
 }
 
 
