@@ -21,7 +21,9 @@ $events = new mwc_front_Special_events($args);
     <div class="row">
 
     <h2 class="black col-md-8 col-md-offset-2 text-center">
-        <?php $events->display_title(); ?>
+        <a href="<?php echo $events->get_category_link(); ?>">
+            <?php $events->display_title(); ?>
+        </a>        
     </h2>
 
     <div id="special-event-wrapper" <?php $events->wrapper_class(); ?>>

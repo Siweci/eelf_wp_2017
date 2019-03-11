@@ -98,6 +98,24 @@ h3 {
 }
 
 
+/* LIENS
+-----------------------------------------------------------------*/
+
+/* utilisé sur la page d'accueil pour le titre 
+des événements exceptionnels */
+
+h2 a {
+    color: inherit;
+}
+
+h2 a:hover {
+    text-decoration: none;
+    color: inherit;
+    background: #d3d3d3;
+    border: 1px solid #d3d3d3;
+    padding: 10px 15px;
+}
+
 /* BUTTONS
 -----------------------------------------------------------------*/
 
