@@ -116,6 +116,8 @@ h2 a:hover {
     padding: 10px 15px;
 }
 
+
+
 /* BUTTONS
 -----------------------------------------------------------------*/
 
@@ -789,6 +791,15 @@ h2.tablepress-table-name {
 #page-evenements-speciaux {
     padding-top: 40px;
     padding-bottom: 40px;
+}
+
+#page-evenements-speciaux h1 {
+    margin-bottom: 0;
+    font-size: 52px;
+    font-weight: 300;
+    color: #8594a8;
+    letter-spacing: -2px;
+    line-height: 58px;
 }
 
 
