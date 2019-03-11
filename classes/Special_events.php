@@ -26,6 +26,10 @@ class mwc_front_Special_events  extends WP_Query {
     }
     
     
+    
+    /**
+     * Affiche le titre
+     */
     public function display_title() {
         
         if( $this->count == 1) {
@@ -40,6 +44,9 @@ class mwc_front_Special_events  extends WP_Query {
     }
     
     
+    /**
+     * Déprecated 
+     */
     public function display_events() {
         
         while ( $this->have_posts() ) : $this->the_post();
@@ -64,6 +71,9 @@ class mwc_front_Special_events  extends WP_Query {
     }
     
     
+    /**
+     * Gère la classe complémentaire de #special-event-wrapper
+     */
     public function wrapper_class() {
         
         $class = 'col-xs-12 ';
@@ -93,6 +103,9 @@ class mwc_front_Special_events  extends WP_Query {
     }
     
     
+    /**
+     * Génére les classes associée à #special-event-
+     */
     public function main_class() {
         
         echo post_class( 'special-event col-xs-12 ' .  'col-md-' . 12 / $this->count );
@@ -100,7 +113,9 @@ class mwc_front_Special_events  extends WP_Query {
     }
     
     
-    
+    /**
+     * Génère la classe complémentaire de ???
+     */
     public function single_image_class() {
         
         $class = 'single-image col-xs-12 ';
@@ -119,6 +134,10 @@ class mwc_front_Special_events  extends WP_Query {
     }
     
     
+    /**
+     * Permet le switch entre les différents templates
+     * @return string
+     */
     public function get_end_name() {
         
         if ( $this->count == 1 ) {
@@ -133,6 +152,7 @@ class mwc_front_Special_events  extends WP_Query {
         }
         
     }
+    
     
     /**
      * Affiche un bouton si il y a plus de 3 posts (événements spéciaux)
