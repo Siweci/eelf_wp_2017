@@ -79,6 +79,8 @@
             <?php endwhile; endif; ?>
             
             <?php wp_reset_query(); ?>
+            
+            
 
         <!-- SPECIAL EVENT -->
         
