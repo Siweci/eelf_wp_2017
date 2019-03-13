@@ -69,6 +69,18 @@ thead.dark {
 }
 
 
+.passed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3em;
+    line-height: 3em;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
+
 h2 {
     font-family: 'Roboto', sans-serif;
     font-size: 44px;
@@ -84,6 +96,26 @@ h3 {
     color: #000;
     letter-spacing: 0;
 }
+
+
+/* LIENS
+-----------------------------------------------------------------*/
+
+/* utilisé sur la page d'accueil pour le titre 
+des événements exceptionnels */
+
+h2 a {
+    color: inherit;
+}
+
+h2 a:hover {
+    text-decoration: none;
+    color: inherit;
+    background: #d3d3d3;
+    border: 1px solid #d3d3d3;
+    padding: 10px 15px;
+}
+
 
 
 /* BUTTONS
@@ -698,26 +730,31 @@ footer a {
 }
 
 
-/* SPECIAL EVENT
+/* SPECIAL EVENTS
 -----------------------------------------------------------------*/
 
-#special-event {
-    padding-top: 60px;
-    padding-bottom: 80px;
+#special-events {
+    padding-top: 45px;
+    padding-bottom: 65px;
 }
 
-#special-event h2 {
+.special-event {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.special-event h2 {
     margin-top: 0;
     margin-bottom: 60px;
     line-height: 48px;
 }
 
-#special-event h3 {
+.special-event h3 {
     margin-top: 40px;
 }
 
-#special-event p,
-#special-event td {
+.special-event p,
+.special-event td {
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     color: #8594a8;
@@ -725,7 +762,7 @@ footer a {
     line-height: 29px;
 }
 
-#special-event table {
+.special-event table {
     margin-top: 40px;
 }
 
@@ -735,8 +772,42 @@ footer a {
 }
 
 #special-event-page #google-map {
-        margin-bottom: 40px;
-    }
+    margin-bottom: 40px;
+}
+
+h2.tablepress-table-name {
+    font-family: 'Roboto', sans-serif;
+    font-size: 44px;
+    font-weight: 100;
+    color: #000;
+    letter-spacing: 0;
+    margin-bottom: 10px !important;
+}
+
+
+
+/* LA CATEGORIE SPECIAL EVENTS */
+
+#page-evenements-speciaux {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+#page-evenements-speciaux h1 {
+    margin-bottom: 0;
+    font-size: 52px;
+    font-weight: 300;
+    color: #8594a8;
+    letter-spacing: -2px;
+    line-height: 58px;
+}
+
+
+.single-image-wrapper {
+    position: relative;
+    font-size: 12px;
+    letter-spacing: 0.6px;
+}
 
 
 
@@ -800,7 +871,8 @@ footer a {
 -----------------------------------------------------------------*/
 
 #services {
-    
+    padding-top: 55px;
+    padding-bottom: 35px;
 }
 
 #services .thumbnail {
@@ -1480,19 +1552,6 @@ button.get-archives {
 }
 
 
-/* EVENEMENT SPECIAL
------------------------------------------------------------------*/
-
-h2.tablepress-table-name {
-    font-family: 'Roboto', sans-serif;
-    font-size: 44px;
-    font-weight: 100;
-    color: #000;
-    letter-spacing: 0;
-    margin-bottom: 10px !important;
-}
-
-
 
 
 /* MEDIA QUERIES
@@ -1740,6 +1799,29 @@ h2.tablepress-table-name {
         height: 42px;
     }
     
+    
+    
+    /* SPECIAL EVENTS */
+    
+    .special-event {
+        padding-top: 60px;
+        padding-bottom: 50px;
+    }
+    
+    #page-evenements-speciaux .special-event {
+        height: 537px;
+    }
+    
+    
+    
+    /* SERVICES */
+    
+    #services {
+        padding-top: 55px;
+        padding-bottom: 35px;
+    }
+    
+     
     
     /* MESSAGES */
     

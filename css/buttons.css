@@ -1,4 +1,4 @@
-.btn-outline,
+.btn.btn-outline,
 .btn-outline:focus {
     background: 0;
 }
@@ -48,6 +48,28 @@
 
 .btn-outline.btn-info:hover {
     background: #2aabd0;
+}
+
+
+/* GREEN */
+
+.btn-outline.btn-green {
+    background: 0;
+    color: #7dc855;
+    border-color: #7dc855;
+}
+
+
+/* BLACK */
+
+.btn-outline.btn-black {
+    color: #444;
+    border-color: #444;
+    border-radius: 0;
+}
+
+.btn-outline.btn-black:hover {
+    background: #444;
 }
 
 

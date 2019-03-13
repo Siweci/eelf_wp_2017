@@ -2,35 +2,60 @@
 
 $args = array(
     'category_name' => 'evenements-speciaux',
-    'posts_per_page' => 1
+    'meta_key' => 'date_debut',
+    'orderby' => 'meta_value',
+    'order' => 'DESC',
+    'posts_per_page' => 3,
+    'paged' => 1
 );
 
-$evenements_speciaux = new WP_Query( $args );
+global $events;
+$events = new mwc_front_Special_events($args);
 
 ?>
 
-<?php if( $evenements_speciaux->have_posts() ) : ?>
+<?php if( $events->have_posts() ) : ?>
+
+<div id="special-events" class="col-xs-12">
     
-    <h2 class="black col-md-8 col-md-offset-2 text-center">Evénement exceptionnel</h2>
-    
-    <?php while ( $evenements_speciaux->have_posts() ) : $evenements_speciaux->the_post(); ?>
-    
-    <section id="special-event" <?php post_class( 'col-xs-12' ); ?>>
+    <div class="row">
+
+    <h2 class="black col-md-8 col-md-offset-2 text-center">
+        <a href="<?php echo $events->get_category_link(); ?>">
+            <?php $events->display_title(); ?>
+        </a>        
+    </h2>
+
+    <div id="special-event-wrapper" <?php $events->wrapper_class(); ?>>
 
         <div class="row">
 
+            <?php while ( $events->have_posts() ) : $events->the_post(); ?>
+
+            <section id="<?php echo "special-event-" . get_the_ID(); ?>" <?php $events->main_class(); ?>>
+
+                <div class="row">
+
+                    <?php
+
+                    get_template_part ( 'parts/special-event-image', $events->get_end_name() );
+
+                    ?>
+
+                </div>
+
+            </section>
+
+            <?php endwhile; ?>
             
-            
-            <?php
-            $tableau = get_field ( 'tableau' );
-            
-            $end_name = (empty ( $tableau ) ) ? 'single' : 'table';
-            
-            get_template_part ( 'parts/special-event-image', $end_name );
-            ?>
+            <?php $events->display_to_archive_button(); ?>
 
         </div>
 
-    </section>
+    </div>
+        
+    </div>
+    
+</div><!-- #special-events -->
 
-<?php endwhile; endif;
+<?php endif;
