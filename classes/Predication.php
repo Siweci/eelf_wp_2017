@@ -60,10 +60,6 @@ class mwc_front_Predication {
      */
     public function set_link() {
         
-//        $this->lien =
-//                get_field( 'lien_externe', $this->ID ) ? : 
-//                get_field( 'lien_local', $this->ID ) ? :
-//                '';
         
         if ( get_field( 'lien_externe', $this->ID ) ) {
             
@@ -85,7 +81,7 @@ class mwc_front_Predication {
     
     /**
      * Définit les balises qui entourent l'icone principale
-     * si 
+     * si le message a un lien
      */
     public function print_main_icone_wrapper_open() {
         
