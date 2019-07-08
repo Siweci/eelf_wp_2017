@@ -302,6 +302,12 @@ footer {
     color: #fff;
 }
 
+.main-footer h4 {
+    margin: 0;
+    font-weight: 300;
+    font-size: 18px;
+}
+
 footer p {
     margin: 0;
 }
@@ -315,7 +321,8 @@ footer a {
     font-size: 18px;
 }
 
-#church-datas a {
+#church-datas a,
+.main-footer a {
     border-bottom: 1px dotted;
 }
 
