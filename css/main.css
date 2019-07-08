@@ -302,6 +302,12 @@ footer {
     color: #fff;
 }
 
+.main-footer h4 {
+    margin: 0;
+    font-weight: 300;
+    font-size: 18px;
+}
+
 footer p {
     margin: 0;
 }
@@ -315,7 +321,8 @@ footer a {
     font-size: 18px;
 }
 
-#church-datas a {
+#church-datas a,
+.main-footer a {
     border-bottom: 1px dotted;
 }
 
@@ -335,6 +342,39 @@ footer a {
 #church-networks a:active {
     text-decoration: none;
 }
+
+/* Le widget */
+
+#footer-sidebar .widget_mwc_link li {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: initial;
+}
+
+
+#footer-sidebar .widget_mwc_link i {
+    vertical-align: middle;
+}
+
+
+/* Disposition en boutons */
+
+#footer-sidebar .widget_mwc_link ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+#footer-sidebar .widget_mwc_link a {
+    margin-right: 14px;
+    border: 0;
+    padding: 3px 5px;
+    border-radius: 2px;
+    background-color: #a0aab3;
+}
+
+
 
 /* NEXT-EVENT
 -----------------------------------------------------------------*/

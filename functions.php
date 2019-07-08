@@ -277,6 +277,25 @@ function mwc_is_empty_content() {
 }
 
 
+/**
+ * Register sidebars and widgetized areas.
+ *
+ */
+function mwc_widgets_init() {
+
+	register_sidebar( array(
+		'name'          => 'Footer right sidebar',
+		'id'            => 'footer_right_sidebar',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4>',
+		'after_title'   => '</h4>',
+	) );
+
+}
+add_action( 'widgets_init', 'mwc_widgets_init' );
+
+
 
 require 'functions/functions-ajax.php';
 require 'functions/functions-custom.php';
