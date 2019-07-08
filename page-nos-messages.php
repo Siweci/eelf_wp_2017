@@ -38,12 +38,26 @@ $predications = new WP_Query( $args );
                                 <?php $predication->print_main_icone_wrapper_open(); ?>
                                 
                                     <div class="icone-table center-block-xs">
+                                        
                                         <div class="icone-cell">
-                                            <i class="fa fa-microphone fa-5x" aria-hidden="true"></i>
+                                            
+                                            <?php if ( has_post_thumbnail() ) : ?>
+                                            
+                                                <?php the_post_thumbnail( 'predication-main' , array( 'class'=>'img-responsive' ) ); ?>
+                                            
+                                            <?php else: ?>
+                                            
+                                                <i class="fa fa-microphone fa-5x" aria-hidden="true"></i>
+                                                
+                                            <?php endif; ?>
+                                                
                                         </div>
+                                        
                                     </div>
                                 
                                 <?php $predication->print_main_icone_wrapper_close();?>
+                                
+                                
 
                                 <div class="text col-xs-12 col-md-9">
                                     <h4 class=""><?php the_title(); ?></h4>

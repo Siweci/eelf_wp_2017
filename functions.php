@@ -95,6 +95,7 @@ if ( function_exists( 'add_image_size' ) ) {
          add_image_size( 'galerie-main-event', 496, 372, true );
          add_image_size( 'benevole-miniature', 80, 80, true);
          add_image_size( 'header-half', 1280, 444, true);
+         add_image_size( 'predication-main', 180, 180, true );
 }
 
 
