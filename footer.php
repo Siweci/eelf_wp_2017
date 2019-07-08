@@ -1,5 +1,5 @@
         
-        <footer class="">
+        <footer class="main-footer">
             
             <div class="container-fluid">
             
@@ -24,6 +24,10 @@
                                 <?php echo mwc_front_Contacts::get_adresse(); ?>
                             </p>
                             
+                        </div>
+                        
+                        <div class="col-xs-12 col-md-4">
+                            <?php get_sidebar(); ?>
                         </div>
 
                         <?php // include 'parts/church-networks.php'; ?>
