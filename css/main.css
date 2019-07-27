@@ -293,6 +293,7 @@ button.close {
 
 footer {
     position: relative;
+    margin-top: 3em;
     padding-top: 20px;
     padding-bottom: 20px;
     background: #86939e;
@@ -1590,6 +1591,89 @@ button.get-archives {
 #messages ~ footer {
     margin-top: 15px;
 }
+
+
+/* Liens
+-----------------------------------------------------------------*/
+
+.mwc-lien {
+    padding: 1em;
+}
+
+
+.mwc-lien .text {
+    color: #000;
+}
+
+.mwc-lien ~ .mwc-lien {
+    margin-top: 50px;
+}
+
+.mwc-lien:hover {
+    border-radius: 8px;
+    background: rgba(74, 144, 226, 0.2);
+    color: #fff;
+}
+
+.mwc-lien:hover h3,
+.mwc-lien:hover .text {
+    /*color: #fff;*/
+}
+
+
+#mwc-liens h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    color: #000;
+    letter-spacing: 0;
+    border-bottom: 1px dotted #86939e; /*#5bc0de;*/
+}
+
+.mwc-liens-wrapper ~ h2 {
+    margin-top: 0.8em !important;
+}
+
+
+.mwc-lien .icone-cell {
+    width: 150px;
+    text-align: center;
+}
+
+
+.mwc-replacement-image {
+    width: 100px;
+    height: auto;
+}
+
+
+.mwc-lien h3,
+.mwc-lien .text {
+    margin-top: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    /*color: #000;*/
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.mwc-link-text {
+    display: block;
+}
+
+.mwc-link-text i {
+    position: relative;
+    top: -2px;
+}
+
+.mwc-link-comment {
+    margin-top: 8px;
+    font-size: 20px;
+    font-weight: 100;
+}
+
 
 
 
